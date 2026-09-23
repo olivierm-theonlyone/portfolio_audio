@@ -27,3 +27,7 @@ Le bouton CV est fixe à l'écran et le CV est également accessible depuis le m
 
 ## Réalisations
 La page contient actuellement 8 vidéos YouTube. Pour en ajouter, dupliquez une carte `.work-card` dans la section `#realisations`, remplacez l’identifiant YouTube, le titre et le rôle. Le lecteur est chargé uniquement au clic.
+
+
+## Correctif lecteur vidéo
+Les vidéos YouTube sont maintenant chargées dans un conteneur conservant la taille et la position de la vignette. Elles restent donc dans la grille lors de la lecture ; le plein écran reste disponible via le lecteur YouTube.
