@@ -108,7 +108,7 @@
     .hero-name{
       margin:0 0 28px;
       font-family:"Space Grotesk",sans-serif;
-      font-size:clamp(72px,9vw,138px);
+      font-size:clamp(66px,8.1vw,124px);
       line-height:.82;letter-spacing:-.075em;font-weight:700;
       text-transform:uppercase
     }
@@ -198,22 +198,71 @@
     }
     .video-frame{position:absolute;inset:0;width:100%;height:100%;border:0}
 
-    .services-list{border-top:1px solid var(--line)}
+    .services-list{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:18px;
+    }
     .service-row{
-      display:grid;grid-template-columns:80px 1fr minmax(260px,.72fr);gap:26px;align-items:center;
-      min-height:150px;border-bottom:1px solid var(--line)
+      position:relative;
+      min-height:250px;
+      padding:30px;
+      overflow:hidden;
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      background:#121216;
+      color:var(--paper);
+      isolation:isolate;
+      transition:transform .22s ease,border-color .22s ease,background .22s ease;
+    }
+    .service-row:hover{transform:translateY(-3px);background:#151519}
+    .service-row::before{
+      content:"";
+      position:absolute;
+      left:0;top:0;bottom:0;
+      width:6px;
+      background:var(--service-color);
+      z-index:0;
+    }
+    .service-row::after{
+      content:"";
+      position:absolute;
+      width:130px;height:130px;
+      right:-58px;top:-58px;
+      transform:rotate(45deg);
+      border:1px solid var(--service-color);
+      opacity:.42;
+      z-index:0;
     }
     .service-mark{
-      width:14px;height:14px;transform:rotate(45deg);border:2px solid currentColor;justify-self:start
+      display:block;
+      width:44px;height:4px;
+      margin-bottom:54px;
+      background:var(--service-color);
+      position:relative;z-index:1;
     }
-    .service-row:nth-child(1){color:var(--green)}
-    .service-row:nth-child(2){color:var(--orange)}
-    .service-row:nth-child(3){color:var(--mauve)}
-    .service-row:nth-child(4){color:var(--blue)}
+    .service-row:nth-child(1){--service-color:var(--green)}
+    .service-row:nth-child(2){--service-color:var(--orange)}
+    .service-row:nth-child(3){--service-color:var(--mauve)}
+    .service-row:nth-child(4){--service-color:var(--blue)}
     .service-row h3{
-      margin:0;color:var(--paper);font-family:"Space Grotesk";font-size:32px;font-weight:600;letter-spacing:-.04em
+      position:relative;z-index:1;
+      margin:0 0 16px;
+      color:var(--paper);
+      font-family:"Space Grotesk";
+      font-size:clamp(28px,2.6vw,38px);
+      line-height:1.02;
+      font-weight:600;
+      letter-spacing:-.045em;
     }
-    .service-row p{margin:0;color:#aaa6a0;line-height:1.65;font-size:16px}
+    .service-row p{
+      position:relative;z-index:1;
+      max-width:540px;
+      margin:0;
+      color:#aaa6a0;
+      line-height:1.68;
+      font-size:16px;
+    }
 
     .about-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:72px}
     .about-lead{
@@ -224,8 +273,58 @@
     .fact{padding:22px;background:var(--bg)}
     .fact strong{display:block;font-family:"Space Grotesk";font-size:27px;margin-bottom:5px}
     .fact span{color:#8f8b85;font-size:13px}
-    .references{display:flex;flex-wrap:wrap;gap:8px;margin-top:28px}
-    .reference{padding:8px 11px;border:1px solid var(--line);color:#c9c4bd;font-size:12px}
+    .references{
+      display:grid;
+      grid-template-columns:repeat(4,minmax(0,1fr));
+      gap:10px;
+      margin-top:30px
+    }
+    .client-logo{
+      --brand:var(--blue);
+      min-height:82px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:16px 15px;
+      border:1px solid rgba(255,255,255,.11);
+      border-top:3px solid var(--brand);
+      border-radius:12px;
+      background:#f3f0e9;
+      overflow:hidden;
+      transition:transform .2s ease, box-shadow .2s ease
+    }
+    .client-logo:hover{
+      transform:translateY(-2px);
+      box-shadow:0 9px 25px rgba(0,0,0,.20)
+    }
+    .client-logo img{
+      width:auto;
+      max-width:100%;
+      max-height:38px;
+      object-fit:contain
+    }
+    .client-logo.square img{max-height:46px;max-width:54px}
+    .client-logo .logo-fallback{
+      display:none;
+      color:#141414;
+      font-family:"Space Grotesk",sans-serif;
+      font-size:13px;
+      font-weight:700;
+      text-align:center
+    }
+    .client-logo.netflix{--brand:#e50914}
+    .client-logo.france2{--brand:#171717}
+    .client-logo.m6{--brand:#6f7cff}
+    .client-logo.lvmh{--brand:#a68c68}
+    .client-logo.google{--brand:#4285f4}
+    .client-logo.renault{--brand:#f2d22f}
+    .client-logo.dior{--brand:#b87cae}
+    .client-logo.hermes{--brand:#f37021}
+    .client-logo.chanel{--brand:#d8c8a8}
+    .client-logo.porsche{--brand:#b79a67}
+    .client-logo.tiktok{--brand:#25f4ee}
+    .client-logo.psg{--brand:#004170}
+
 
     .contact-section{
       background:var(--paper);color:#0b0b0d;border-top:0
@@ -265,9 +364,9 @@
       .hero-grid{grid-template-columns:1fr}
       .hero-visual{min-height:460px}
       .work-card,.work-card:nth-child(n+3){grid-column:span 6}
-      .service-row{grid-template-columns:50px 1fr}
-      .service-row p{grid-column:2}
+      .services-list{grid-template-columns:1fr 1fr}
       .about-grid,.contact-grid{grid-template-columns:1fr;gap:44px}
+      .references{grid-template-columns:repeat(3,minmax(0,1fr))}
     }
     @media(max-width:650px){
       html{scroll-padding-top:82px}
@@ -278,16 +377,19 @@
       .brand{font-size:21px}
       .role{font-size:11px;min-height:32px;padding:0 10px}
       .hero{padding:54px 0 48px;min-height:auto}
-      .hero-name{font-size:17vw;margin-bottom:22px}
+      .hero-name{font-size:15.5vw;margin-bottom:22px}
       .hero-title{font-size:11vw}
       .hero-lead{font-size:18px}
       .hero-visual{min-height:360px}
       .section{padding:76px 0}
       .section-title{font-size:11vw;margin-bottom:38px}
       .work-card,.work-card:nth-child(n+3){grid-column:span 12;min-height:270px}
-      .service-row{grid-template-columns:34px 1fr;gap:14px;padding:26px 0}
-      .service-row h3{font-size:26px}
+      .services-list{grid-template-columns:1fr}
+      .service-row{min-height:225px;padding:26px}
+      .service-mark{margin-bottom:42px}
+      .service-row h3{font-size:29px}
       .service-row p{font-size:15px}
+      .references{grid-template-columns:repeat(2,minmax(0,1fr))}
       .form-row{grid-template-columns:1fr}
       .floating-cv{left:14px;right:14px;bottom:12px}
       .footer-inner{padding:20px 0 84px;align-items:flex-start;flex-direction:column}
@@ -386,7 +488,7 @@
           <article class="service-row"><span class="service-mark"></span><h3>Prise de son tournage</h3><p>Publicité, institutionnel, mode, télévision et documentaire. Petites ou grandes équipes, décor naturel ou studio.</p></article>
           <article class="service-row"><span class="service-mark"></span><h3>Mixage broadcast</h3><p>Billboards, programmes courts et contenus TV : mixage, normalisation EBU R128, contrôle et préparation des livrables.</p></article>
           <article class="service-row"><span class="service-mark"></span><h3>Voix off</h3><p>Enregistrement, direction technique, montage et nettoyage des prises sur station Nuendo, avec livraison adaptée au projet.</p></article>
-          <article class="service-row"><span class="service-mark"></span><h3>Montage & mixage</h3><p>Post-production stéréo, multicanal et Dolby Atmos, avec maîtrise des normes de diffusion et workflows professionnels.</p></article>
+          <article class="service-row"><span class="service-mark"></span><h3>Montage & mixage</h3><p>Post-production stéréo et multicanal, avec maîtrise des normes de diffusion et des workflows professionnels.</p></article>
         </div>
       </div>
     </section>
@@ -407,8 +509,19 @@
           <div class="about-copy">
             <p>J’interviens de l’interview en équipe légère aux productions internationales, avec une attention particulière portée à la discrétion des HF, à la qualité de la prise et à la fluidité du plateau.</p>
             <p>En post-production, je travaille notamment sur Nuendo et Pro Tools pour le montage, le mixage et les livraisons répondant aux normes de diffusion.</p>
-            <div class="references">
-              <span class="reference">Netflix</span><span class="reference">France 2</span><span class="reference">M6</span><span class="reference">LVMH</span><span class="reference">Google</span><span class="reference">Renault</span><span class="reference">Dior</span><span class="reference">Hermès</span><span class="reference">Chanel</span><span class="reference">Porsche</span><span class="reference">TikTok</span><span class="reference">PSG</span>
+            <div class="references" aria-label="Sélection de clients et diffuseurs">
+              <div class="client-logo netflix"><img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" alt="Netflix" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="logo-fallback">Netflix</span></div>
+              <div class="client-logo france2 square"><img src="https://upload.wikimedia.org/wikipedia/commons/5/53/France_2_2018.svg" alt="France 2" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="logo-fallback">France 2</span></div>
+              <div class="client-logo m6 square"><img src="https://upload.wikimedia.org/wikipedia/commons/f/f9/Logo_M6_%282020%29.svg" alt="M6" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="logo-fallback">M6</span></div>
+              <div class="client-logo lvmh"><img src="https://upload.wikimedia.org/wikipedia/commons/b/b1/LVMH_logo.svg" alt="LVMH" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="logo-fallback">LVMH</span></div>
+              <div class="client-logo google"><img src="https://upload.wikimedia.org/wikipedia/commons/e/ee/Google_2026_logo.svg" alt="Google" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="logo-fallback">Google</span></div>
+              <div class="client-logo renault square"><img src="https://upload.wikimedia.org/wikipedia/commons/b/b7/Renault_2021_Text.svg" alt="Renault" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="logo-fallback">Renault</span></div>
+              <div class="client-logo dior"><img src="https://upload.wikimedia.org/wikipedia/commons/5/56/Dior_Logo_2022.svg" alt="Dior" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="logo-fallback">Dior</span></div>
+              <div class="client-logo hermes"><img src="https://upload.wikimedia.org/wikipedia/commons/c/c9/Hermes_wordmark.svg" alt="Hermès" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="logo-fallback">Hermès</span></div>
+              <div class="client-logo chanel"><img src="https://upload.wikimedia.org/wikipedia/commons/3/35/Chanel_logo.svg" alt="Chanel" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="logo-fallback">Chanel</span></div>
+              <div class="client-logo porsche"><img src="https://upload.wikimedia.org/wikipedia/commons/1/12/Porsche_wordmark.svg" alt="Porsche" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="logo-fallback">Porsche</span></div>
+              <div class="client-logo tiktok"><img src="https://upload.wikimedia.org/wikipedia/commons/b/b6/Tiktok_logo_text.svg" alt="TikTok" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="logo-fallback">TikTok</span></div>
+              <div class="client-logo psg square"><img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/Paris_Saint-Germain_F.C._logo_%28free_version%29.svg" alt="Paris Saint-Germain" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="logo-fallback">PSG</span></div>
             </div>
             <div style="margin-top:28px"><a class="button secondary" href="assets/olivier-mur-cv.pdf" download>Télécharger le CV complet ↓</a></div>
           </div>
