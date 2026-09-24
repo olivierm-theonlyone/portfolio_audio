@@ -3,591 +3,316 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Olivier Mur — Chef opérateur du son et mixeur à Paris et en Île-de-France. Tournage, publicité, TV, institutionnel, voix off et mixage broadcast." />
-  <meta name="theme-color" content="#111111" />
+  <meta name="description" content="Olivier Mur — Chef opérateur du son et mixeur à Paris. Tournage, publicité, télévision, institutionnel, voix off et mixage broadcast." />
+  <meta name="theme-color" content="#0b0b0d" />
   <title>Olivier Mur — Chef opérateur du son & mixeur</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
   <style>
-    :root {
-      --bg: #f5f1ea;
-      --bg-soft: rgba(255,255,255,.45);
-      --ink: #101010;
-      --muted: #6a655d;
-      --line: rgba(35, 29, 21, .13);
-      --card: rgba(255,255,255,.50);
-      --white: #ffffff;
-      --dark: #101010;
-      --accent-main: #1900a8;
-      --services: #94a86a;
-      --works: #bb7b5a;
-      --about: #6d79b9;
-      --contact: #93678d;
-      --radius: 22px;
-      --shadow: 0 16px 50px rgba(25, 16, 8, .08);
+    :root{
+      --bg:#0b0b0d;
+      --bg2:#111114;
+      --paper:#f0ede6;
+      --muted:#aaa6a0;
+      --line:rgba(255,255,255,.12);
+      --blue:#6f7cff;
+      --green:#9fbf77;
+      --orange:#d58b67;
+      --mauve:#b87cae;
+      --yellow:#d9c46b;
+      --radius:20px;
     }
 
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; scroll-padding-top: 96px; }
-    body {
-      margin: 0;
-      color: var(--ink);
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth;scroll-padding-top:98px}
+    body{
+      margin:0;
+      color:var(--paper);
       background:
-        linear-gradient(180deg, #f7f3ed 0%, #f3eee6 45%, #f7f3ed 100%);
-      font-family: "Manrope", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      -webkit-font-smoothing: antialiased;
-      text-rendering: optimizeLegibility;
-      position: relative;
-      overflow-x: hidden;
+        linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px),
+        var(--bg);
+      background-size:72px 72px;
+      font-family:"DM Sans",system-ui,sans-serif;
+      -webkit-font-smoothing:antialiased;
+      overflow-x:hidden;
     }
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      opacity: .55;
+    body:before{
+      content:"";
+      position:fixed; inset:0; pointer-events:none; z-index:-1;
       background:
-        linear-gradient(125deg, rgba(148,168,106,.11) 0 18%, transparent 18% 100%),
-        linear-gradient(305deg, rgba(187,123,90,.10) 0 16%, transparent 16% 100%),
-        linear-gradient(90deg, rgba(16,16,16,.035) 1px, transparent 1px) 0 0 / 72px 72px,
-        linear-gradient(rgba(16,16,16,.035) 1px, transparent 1px) 0 0 / 72px 72px;
-      mask-image: linear-gradient(180deg, rgba(0,0,0,.95), rgba(0,0,0,.72));
+        linear-gradient(135deg, transparent 0 68%, rgba(111,124,255,.055) 68% 79%, transparent 79%),
+        linear-gradient(315deg, transparent 0 78%, rgba(213,139,103,.05) 78% 88%, transparent 88%);
     }
-    body::after {
-      content: "";
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      opacity: .35;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 1200'%3E%3Cg fill='none' stroke='%231900a8' stroke-opacity='.42' stroke-width='1.8'%3E%3Cpath d='M1180 90 1510 90 1325 275 995 275Z'/%3E%3Cpath d='M1085 190 1415 190 1230 375 900 375Z'/%3E%3Cpath d='M75 870 365 870 205 1030 -85 1030Z'/%3E%3Cpath d='M190 760 480 760 320 920 30 920Z'/%3E%3C/g%3E%3Cg fill='none' stroke='%23bb7b5a' stroke-opacity='.35' stroke-width='1.4'%3E%3Cpath d='M860 710 1085 710 980 815 755 815Z'/%3E%3Cpath d='M810 770 1035 770 930 875 705 875Z'/%3E%3C/g%3E%3Cg fill='none' stroke='%236d79b9' stroke-opacity='.32' stroke-width='1.4'%3E%3Cpath d='M180 120 420 120 280 260 40 260Z'/%3E%3Cpath d='M255 200 495 200 355 340 115 340Z'/%3E%3C/g%3E%3C/svg%3E");
-      background-repeat: no-repeat;
-      background-size: cover;
-      background-position: center;
-      mix-blend-mode: multiply;
-    }
-    a { color: inherit; text-decoration: none; }
-    button, input, textarea { font: inherit; }
-    img { max-width: 100%; display: block; }
-    ::selection { background: var(--accent-main); color: var(--white); }
+    a{color:inherit;text-decoration:none}
+    img{display:block;max-width:100%}
+    button,input,textarea{font:inherit}
+    ::selection{background:var(--blue);color:white}
+    .wrap{width:min(1280px,calc(100% - 52px));margin:auto}
 
-    .wrap { width: min(1200px, calc(100% - 48px)); margin: 0 auto; }
+    .site-header{
+      position:sticky;top:0;z-index:80;
+      background:rgba(11,11,13,.84);
+      border-bottom:1px solid var(--line);
+      backdrop-filter:blur(16px);
+    }
+    .nav{
+      min-height:92px;
+      display:grid;
+      grid-template-columns:minmax(330px,1.25fr) auto auto;
+      align-items:center;
+      gap:26px;
+    }
+    .identity{display:flex;align-items:center;gap:18px;min-width:0}
+    .brand{
+      font-family:"Space Grotesk",sans-serif;
+      font-size:28px;font-weight:700;letter-spacing:-.055em;white-space:nowrap
+    }
+    .role{
+      display:inline-flex;align-items:center;min-height:38px;padding:0 14px;
+      border:1px solid rgba(111,124,255,.35);border-radius:999px;
+      background:rgba(111,124,255,.12);color:#cdd1ff;
+      font-size:14px;font-weight:600;white-space:nowrap
+    }
+    .nav-links{display:flex;align-items:center;gap:22px}
+    .nav-links a{
+      position:relative;padding:12px 0 10px;
+      color:#d8d5cf;font-size:14px;font-weight:600
+    }
+    .nav-links a:after{
+      content:"";position:absolute;left:0;right:0;bottom:3px;height:2px;
+      transform:scaleX(.22);transform-origin:left;transition:.2s ease
+    }
+    .nav-links a:hover:after{transform:scaleX(1)}
+    .nav-services:after{background:var(--green)}
+    .nav-work:after{background:var(--orange)}
+    .nav-about:after{background:var(--blue)}
+    .nav-contact:after{background:var(--mauve)}
+    .nav-cv{
+      justify-self:end;display:inline-flex;align-items:center;min-height:46px;padding:0 17px;
+      border:1px solid rgba(255,255,255,.3);border-radius:999px;
+      font-size:13px;font-weight:700;background:white;color:#0b0b0d
+    }
+    .mobile-nav{display:none}
 
-    .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 60;
-      border-bottom: 1px solid rgba(16, 16, 16, .08);
-      background: rgba(247, 243, 237, .78);
-      backdrop-filter: blur(18px);
+    .hero{
+      min-height:calc(100svh - 92px);
+      display:flex;align-items:center;
+      padding:78px 0 60px;
+      overflow:hidden;
     }
-    .nav {
-      min-height: 98px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
+    .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:52px;align-items:end}
+    .hero-name{
+      margin:0 0 28px;
+      font-family:"Space Grotesk",sans-serif;
+      font-size:clamp(72px,9vw,138px);
+      line-height:.82;letter-spacing:-.075em;font-weight:700;
+      text-transform:uppercase
     }
-    .brand-wrap {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      min-width: 0;
+    .hero-name span{display:block}
+    .hero-title{
+      max-width:720px;margin:0 0 26px;
+      font-family:"Space Grotesk",sans-serif;
+      font-size:clamp(38px,4.8vw,70px);line-height:.97;letter-spacing:-.055em;font-weight:600
     }
-    .brand-subtitle {
-      display: inline-flex;
-      align-items: center;
-      min-height: 38px;
-      padding: 0 14px;
-      border: 1px solid rgba(16,16,16,.10);
-      border-radius: 999px;
-      background: linear-gradient(90deg, rgba(148,168,106,.26), rgba(187,123,90,.24) 34%, rgba(109,121,185,.24) 68%, rgba(147,103,141,.24));
-      color: #242019;
-      box-shadow: 0 6px 20px rgba(31,24,17,.05);
-      font-size: 15px;
-      font-weight: 800;
-      letter-spacing: -.018em;
-      white-space: nowrap;
+    .hero-lead{
+      max-width:710px;color:#c7c3bd;font-size:20px;line-height:1.62;margin:0 0 30px
     }
-    .brand {
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
-      font-size: 27px;
-      line-height: 1;
-      font-weight: 800;
-      letter-spacing: -.055em;
-      white-space: nowrap;
+    .hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+    .button{
+      min-height:50px;padding:0 18px;border-radius:999px;
+      display:inline-flex;align-items:center;justify-content:center;
+      border:1px solid rgba(255,255,255,.28);
+      color:#fff;font-size:14px;font-weight:700;transition:.2s ease
     }
-    .brand::before {
-      content: "";
-      width: 15px;
-      height: 15px;
-      border-radius: 999px;
-      background: var(--accent-main);
-      box-shadow: 18px 0 0 rgba(25, 0, 168, .18);
-      flex: 0 0 auto;
-    }
-    .nav-links { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; justify-content: center; }
-    .nav-links a {
-      display: inline-flex;
-      align-items: center;
-      min-height: 44px;
-      padding: 0 16px;
-      border-radius: 999px;
-      border: 1px solid rgba(16,16,16,.08);
-      font-size: 15px;
-      font-weight: 700;
-      letter-spacing: -.015em;
-      color: #221f19;
-      transition: transform .2s ease, border-color .2s ease, background .2s ease;
-    }
-    .nav-links a:hover { transform: translateY(-1px); }
-    .nav-links .nav-services { background: rgba(148,168,106,.16); }
-    .nav-links .nav-realisations { background: rgba(187,123,90,.16); }
-    .nav-links .nav-apropos { background: rgba(109,121,185,.16); }
-    .nav-links .nav-contact { background: rgba(147,103,141,.16); }
-    .nav-cv {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 46px;
-      padding: 0 18px;
-      border: 1px solid var(--ink);
-      border-radius: 999px;
-      background: var(--ink);
-      color: var(--white);
-      font-size: 14px;
-      font-weight: 800;
-      transition: .2s ease;
-      white-space: nowrap;
-    }
-    .nav-cv:hover { background: var(--accent-main); border-color: var(--accent-main); }
+    .button:hover{transform:translateY(-2px)}
+    .button.primary{background:var(--paper);color:#0b0b0d;border-color:var(--paper)}
+    .button.secondary{background:rgba(255,255,255,.04)}
 
-    .hero {
-      min-height: calc(100svh - 98px);
-      display: grid;
-      align-items: center;
-      padding: 92px 0 78px;
-      position: relative;
+    .hero-visual{
+      position:relative;min-height:560px;border-radius:28px;overflow:hidden;
+      border:1px solid var(--line);background:#151518
     }
-    .hero-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1.45fr) minmax(300px, .65fr);
-      gap: 64px;
-      align-items: end;
+    .hero-visual img{
+      position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.84
     }
-    .kicker {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      margin: 0 0 24px;
-      color: #4c483f;
-      font-size: 15px;
-      font-weight: 700;
-      letter-spacing: .02em;
+    .hero-visual:after{
+      content:"";position:absolute;inset:0;
+      background:linear-gradient(180deg,rgba(0,0,0,.04),rgba(0,0,0,.68))
     }
-    .kicker::before {
-      content: "";
-      width: 46px;
-      height: 1px;
-      background: rgba(16,16,16,.32);
+    .feature-meta{
+      position:absolute;left:28px;right:28px;bottom:26px;z-index:2
     }
-    h1, h2, h3, p { margin-top: 0; }
-    h1 {
-      max-width: 920px;
-      margin-bottom: 26px;
-      font-size: clamp(62px, 7.4vw, 108px);
-      line-height: .90;
-      letter-spacing: -.07em;
-      font-weight: 800;
+    .feature-label{color:#f6b696;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
+    .feature-title{
+      display:block;margin-top:8px;font-family:"Space Grotesk";font-size:30px;font-weight:600;letter-spacing:-.04em
     }
-    .hero-lead {
-      max-width: 760px;
-      margin-bottom: 36px;
-      color: #36322c;
-      font-size: clamp(20px, 1.7vw, 25px);
-      line-height: 1.48;
-      letter-spacing: -.02em;
+    .feature-role{display:block;margin-top:7px;color:#ddd7d0;font-size:14px}
+    .geo{
+      position:absolute;border:1px solid rgba(255,255,255,.24);z-index:2;pointer-events:none
     }
-    .actions { display: flex; flex-wrap: wrap; gap: 12px; }
-    .button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 9px;
-      min-height: 52px;
-      padding: 0 19px;
-      border: 1px solid var(--ink);
-      border-radius: 999px;
-      font-size: 15px;
-      font-weight: 800;
-      cursor: pointer;
-      transition: transform .2s ease, background .2s ease, color .2s ease, border-color .2s ease;
-    }
-    .button:hover { transform: translateY(-2px); }
-    .button.dark { background: var(--ink); color: var(--white); }
-    .button.dark:hover { background: var(--accent-main); border-color: var(--accent-main); }
-    .button.ghost { background: rgba(255,255,255,.38); }
-    .button.ghost:hover { background: var(--white); }
-    .button.blue { background: var(--accent-main); color: var(--white); border-color: var(--accent-main); }
-    .button.blue:hover { filter: brightness(1.07); }
+    .geo.one{width:150px;height:150px;right:-45px;top:46px;transform:rotate(45deg);border-color:rgba(111,124,255,.55)}
+    .geo.two{width:82px;height:82px;right:54px;top:150px;transform:rotate(45deg);border-color:rgba(213,139,103,.55)}
 
-    .hero-meta {
-      padding: 30px;
-      border: 1px solid rgba(16,16,16,.08);
-      border-radius: 26px;
-      background: rgba(255,255,255,.43);
-      box-shadow: var(--shadow);
-      backdrop-filter: blur(10px);
+    section{border-top:1px solid var(--line)}
+    .section{padding:105px 0}
+    .section-kicker{
+      display:flex;align-items:center;gap:12px;margin-bottom:28px;
+      font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)
     }
-    .hero-meta .label {
-      margin-bottom: 10px;
-      color: var(--muted);
-      font-size: 12px;
-      font-weight: 800;
-      letter-spacing: .11em;
-      text-transform: uppercase;
-    }
-    .hero-meta p {
-      margin-bottom: 22px;
-      font-size: 18px;
-      line-height: 1.58;
+    .section-kicker:before{content:"";width:44px;height:2px;background:currentColor}
+    .section-title{
+      max-width:860px;margin:0 0 52px;
+      font-family:"Space Grotesk";font-size:clamp(42px,5vw,70px);line-height:.98;letter-spacing:-.055em;font-weight:600
     }
 
-    section { border-top: 1px solid rgba(16,16,16,.08); }
-    .section { padding: 102px 0; }
-    .section-head {
-      display: grid;
-      grid-template-columns: 220px minmax(0, 1fr);
-      gap: 30px;
-      margin-bottom: 52px;
-      align-items: start;
+    .work-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:18px}
+    .work-card{
+      grid-column:span 6;position:relative;min-height:380px;overflow:hidden;
+      border:1px solid var(--line);border-radius:var(--radius);background:#171719;
+      cursor:pointer;padding:0;text-align:left
     }
-    .eyebrow {
-      justify-self: start;
-      padding: 10px 14px;
-      border-radius: 999px;
-      font-size: 14px;
-      font-weight: 800;
-      letter-spacing: -.01em;
-      color: #171410;
-      background: rgba(255,255,255,.55);
-      border: 1px solid rgba(16,16,16,.08);
-      box-shadow: 0 6px 18px rgba(0,0,0,.04);
+    .work-card:nth-child(n+3){grid-column:span 4;min-height:300px}
+    .work-card img{
+      position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.8;
+      transition:transform .45s ease,opacity .3s ease
     }
-    .eyebrow.services-chip { background: rgba(148,168,106,.20); }
-    .eyebrow.works-chip { background: rgba(187,123,90,.18); }
-    .eyebrow.about-chip { background: rgba(109,121,185,.18); }
-    .eyebrow.contact-chip { background: rgba(147,103,141,.18); }
-    h2 {
-      max-width: 920px;
-      margin-bottom: 0;
-      font-size: clamp(42px, 4.7vw, 68px);
-      line-height: .95;
-      letter-spacing: -.06em;
-      font-weight: 800;
+    .work-card:hover img{transform:scale(1.035);opacity:.62}
+    .work-overlay{
+      position:absolute;inset:0;padding:24px;display:flex;flex-direction:column;justify-content:space-between;
+      background:linear-gradient(180deg,rgba(0,0,0,.03),rgba(0,0,0,.76));color:white
     }
-    .section-intro {
-      max-width: 780px;
-      margin: 18px 0 0 250px;
-      color: #474239;
-      font-size: 19px;
-      line-height: 1.65;
+    .work-tag{
+      align-self:flex-start;padding:7px 10px;border-radius:999px;
+      background:rgba(11,11,13,.42);border:1px solid rgba(255,255,255,.26);
+      font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em
+    }
+    .work-title{display:block;font-family:"Space Grotesk";font-size:25px;font-weight:600;letter-spacing:-.04em}
+    .work-role{display:block;margin-top:7px;color:#ddd7d0;font-size:12px;line-height:1.45}
+    .play{
+      display:grid;place-items:center;width:46px;height:46px;margin-top:14px;border-radius:50%;
+      background:#fff;color:#0b0b0d;font-size:14px
+    }
+    .video-frame{position:absolute;inset:0;width:100%;height:100%;border:0}
+
+    .services-list{border-top:1px solid var(--line)}
+    .service-row{
+      display:grid;grid-template-columns:80px 1fr minmax(260px,.72fr);gap:26px;align-items:center;
+      min-height:150px;border-bottom:1px solid var(--line)
+    }
+    .service-mark{
+      width:14px;height:14px;transform:rotate(45deg);border:2px solid currentColor;justify-self:start
+    }
+    .service-row:nth-child(1){color:var(--green)}
+    .service-row:nth-child(2){color:var(--orange)}
+    .service-row:nth-child(3){color:var(--mauve)}
+    .service-row:nth-child(4){color:var(--blue)}
+    .service-row h3{
+      margin:0;color:var(--paper);font-family:"Space Grotesk";font-size:32px;font-weight:600;letter-spacing:-.04em
+    }
+    .service-row p{margin:0;color:#aaa6a0;line-height:1.65;font-size:16px}
+
+    .about-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:72px}
+    .about-lead{
+      margin:0;font-family:"Space Grotesk";font-size:clamp(34px,4vw,54px);line-height:1.04;letter-spacing:-.05em
+    }
+    .about-copy p{color:#bbb6af;font-size:18px;line-height:1.75}
+    .facts{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;margin-top:30px;background:var(--line);border:1px solid var(--line)}
+    .fact{padding:22px;background:var(--bg)}
+    .fact strong{display:block;font-family:"Space Grotesk";font-size:27px;margin-bottom:5px}
+    .fact span{color:#8f8b85;font-size:13px}
+    .references{display:flex;flex-wrap:wrap;gap:8px;margin-top:28px}
+    .reference{padding:8px 11px;border:1px solid var(--line);color:#c9c4bd;font-size:12px}
+
+    .contact-section{
+      background:var(--paper);color:#0b0b0d;border-top:0
+    }
+    .contact-section .section-kicker{color:#514c46}
+    .contact-grid{display:grid;grid-template-columns:.75fr 1.25fr;gap:70px}
+    .contact-copy{font-size:18px;line-height:1.75;color:#46413a}
+    .contact-copy a{border-bottom:1px solid rgba(0,0,0,.34)}
+    .contact-form{display:grid;gap:14px}
+    .field{display:grid;gap:7px}
+    .field label{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#6a635b}
+    .field input,.field textarea{
+      border:0;border-bottom:1px solid rgba(0,0,0,.24);background:transparent;
+      padding:15px 0;color:#0b0b0d;outline:none;font-size:17px;border-radius:0
+    }
+    .field input:focus,.field textarea:focus{border-color:#0b0b0d}
+    .field textarea{min-height:110px;resize:vertical}
+    .form-row{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .honeypot{position:absolute;left:-9999px}
+    .contact-section .button{background:#0b0b0d;color:white;border-color:#0b0b0d;justify-self:start}
+    .form-note{font-size:11px;color:#827b72}
+
+    footer{background:#0b0b0d;border-top:1px solid var(--line)}
+    .footer-inner{min-height:82px;display:flex;align-items:center;justify-content:space-between;color:#77736e;font-size:12px}
+
+    .floating-cv{
+      position:fixed;right:20px;bottom:20px;z-index:90;
+      display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 16px;
+      border-radius:999px;background:var(--blue);color:#fff;font-size:13px;font-weight:700;
+      box-shadow:0 12px 35px rgba(0,0,0,.32)
     }
 
-    .services {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 18px;
+    @media(max-width:1000px){
+      .nav{grid-template-columns:1fr auto}
+      .nav-links,.nav-cv{display:none}
+      .mobile-nav{display:inline-flex;padding:10px 14px;border:1px solid var(--line);border-radius:999px;font-size:13px}
+      .hero-grid{grid-template-columns:1fr}
+      .hero-visual{min-height:460px}
+      .work-card,.work-card:nth-child(n+3){grid-column:span 6}
+      .service-row{grid-template-columns:50px 1fr}
+      .service-row p{grid-column:2}
+      .about-grid,.contact-grid{grid-template-columns:1fr;gap:44px}
     }
-    .service {
-      min-height: 220px;
-      padding: 30px;
-      border: 1px solid rgba(16,16,16,.08);
-      border-radius: var(--radius);
-      background: rgba(255,255,255,.44);
-      box-shadow: var(--shadow);
-      backdrop-filter: blur(8px);
+    @media(max-width:650px){
+      html{scroll-padding-top:82px}
+      body{background-size:54px 54px}
+      .wrap{width:min(100% - 28px,1280px)}
+      .nav{min-height:78px}
+      .identity{gap:10px}
+      .brand{font-size:21px}
+      .role{font-size:11px;min-height:32px;padding:0 10px}
+      .hero{padding:54px 0 48px;min-height:auto}
+      .hero-name{font-size:17vw;margin-bottom:22px}
+      .hero-title{font-size:11vw}
+      .hero-lead{font-size:18px}
+      .hero-visual{min-height:360px}
+      .section{padding:76px 0}
+      .section-title{font-size:11vw;margin-bottom:38px}
+      .work-card,.work-card:nth-child(n+3){grid-column:span 12;min-height:270px}
+      .service-row{grid-template-columns:34px 1fr;gap:14px;padding:26px 0}
+      .service-row h3{font-size:26px}
+      .service-row p{font-size:15px}
+      .form-row{grid-template-columns:1fr}
+      .floating-cv{left:14px;right:14px;bottom:12px}
+      .footer-inner{padding:20px 0 84px;align-items:flex-start;flex-direction:column}
     }
-    .service h3 { margin: 0 0 14px; font-size: 29px; line-height: 1.08; letter-spacing: -.035em; }
-    .service p { max-width: 500px; margin-bottom: 0; color: #565149; line-height: 1.70; font-size: 16px; }
-
-    .work-grid {
-      display: grid;
-      grid-template-columns: repeat(12, 1fr);
-      gap: 18px;
-    }
-    .work-card {
-      position: relative;
-      grid-column: span 6;
-      min-height: 390px;
-      overflow: hidden;
-      border-radius: var(--radius);
-      background: #191919;
-      box-shadow: var(--shadow);
-      border: 0;
-      padding: 0;
-      cursor: pointer;
-      text-align: left;
-    }
-    .work-card:nth-child(n+3) { grid-column: span 4; min-height: 310px; }
-    .work-thumb {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      opacity: .78;
-      transform: scale(1.01);
-      transition: transform .5s ease, opacity .3s ease;
-    }
-    .work-card:hover .work-thumb { transform: scale(1.04); opacity: .58; }
-    .work-overlay {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      padding: 26px;
-      background: linear-gradient(180deg, rgba(0,0,0,.04), rgba(0,0,0,.76));
-      color: var(--white);
-    }
-    .work-tag {
-      align-self: flex-start;
-      padding: 8px 11px;
-      border: 1px solid rgba(255,255,255,.44);
-      border-radius: 999px;
-      background: rgba(0,0,0,.16);
-      backdrop-filter: blur(8px);
-      font-size: 11px;
-      font-weight: 800;
-      letter-spacing: .09em;
-      text-transform: uppercase;
-    }
-    .work-title { display: block; margin: 0; font-size: 25px; line-height: 1.12; letter-spacing: -.04em; font-weight: 800; }
-    .work-role { display: block; margin-top: 8px; color: rgba(255,255,255,.84); font-size: 13px; font-weight: 700; line-height: 1.45; }
-    .play {
-      display: inline-grid;
-      place-items: center;
-      width: 50px;
-      height: 50px;
-      margin-top: 15px;
-      border-radius: 999px;
-      background: var(--white);
-      color: var(--ink);
-      font-size: 16px;
-      font-weight: 900;
-    }
-    .video-frame { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
-
-    .about-grid {
-      display: grid;
-      grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
-      gap: 72px;
-      align-items: start;
-    }
-    .about-big {
-      font-size: clamp(34px, 3.7vw, 52px);
-      line-height: 1.02;
-      letter-spacing: -.05em;
-      font-weight: 800;
-    }
-    .about-copy p { color: #48433b; font-size: 18px; line-height: 1.76; }
-    .facts {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1px;
-      margin-top: 34px;
-      overflow: hidden;
-      border: 1px solid rgba(16,16,16,.08);
-      border-radius: 18px;
-      background: rgba(16,16,16,.08);
-    }
-    .fact { padding: 24px; background: rgba(255,255,255,.50); }
-    .fact strong { display: block; margin-bottom: 6px; font-size: 28px; letter-spacing: -.04em; }
-    .fact span { color: var(--muted); font-size: 14px; }
-
-    .references {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 34px;
-    }
-    .reference {
-      padding: 10px 13px;
-      border: 1px solid rgba(16,16,16,.08);
-      border-radius: 999px;
-      color: #454037;
-      background: rgba(255,255,255,.40);
-      font-size: 14px;
-      font-weight: 700;
-    }
-
-    .contact {
-      background: #111111;
-      color: var(--white);
-      border-top: 0;
-      position: relative;
-      overflow: hidden;
-    }
-    .contact::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at 16% 18%, rgba(147,103,141,.22), transparent 22%), radial-gradient(circle at 80% 22%, rgba(109,121,185,.22), transparent 18%);
-      pointer-events: none;
-    }
-    .contact .section { padding-top: 110px; padding-bottom: 84px; position: relative; }
-    .contact-grid {
-      display: grid;
-      grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr);
-      gap: 80px;
-      margin-top: 60px;
-      align-items: start;
-    }
-    .contact-details { color: #d0cbc5; font-size: 17px; line-height: 1.9; }
-    .contact-details a { color: var(--white); border-bottom: 1px solid rgba(255,255,255,.35); }
-    .contact-details a:hover { color: #ddd6ff; }
-    .contact-form { display: grid; gap: 14px; }
-    .field { display: grid; gap: 8px; }
-    .field label { color: #c7c1bc; font-size: 12px; font-weight: 800; letter-spacing: .07em; text-transform: uppercase; }
-    .field input, .field textarea {
-      width: 100%;
-      padding: 17px 0;
-      border: 0;
-      border-bottom: 1px solid #494949;
-      outline: none;
-      color: var(--white);
-      background: transparent;
-      font-size: 18px;
-      transition: border-color .2s ease;
-      border-radius: 0;
-    }
-    .field input:focus, .field textarea:focus { border-color: #ddd6ff; }
-    .field textarea { min-height: 120px; resize: vertical; }
-    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-    .honeypot { position: absolute; left: -9999px; }
-    .form-note { margin: 3px 0 0; color: #9f9992; font-size: 12px; }
-    .contact .button.blue { background: #ece9ff; color: var(--accent-main); border-color: #ece9ff; justify-self: start; margin-top: 8px; }
-    .contact .button.blue:hover { background: var(--white); border-color: var(--white); }
-
-    footer {
-      border-top: 1px solid #2d2d2d;
-      background: var(--dark);
-      color: #87827d;
-    }
-    .footer-inner {
-      min-height: 86px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-      font-size: 13px;
-    }
-    .footer-inner a { color: #dad3ca; }
-
-    .floating-cv {
-      position: fixed;
-      right: 22px;
-      bottom: 22px;
-      z-index: 70;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 14px 17px;
-      border-radius: 999px;
-      background: var(--accent-main);
-      color: var(--white);
-      box-shadow: 0 12px 38px rgba(25, 0, 168, .28);
-      font-size: 14px;
-      font-weight: 800;
-      transition: transform .2s ease, background .2s ease;
-    }
-    .floating-cv:hover { transform: translateY(-3px); }
-
-    .mobile-menu { display: none; }
-
-    @media (max-width: 980px) {
-      .wrap { width: min(100% - 30px, 1200px); }
-      .nav { min-height: 88px; padding: 12px 0; }
-      .nav-links { display: none; }
-      .nav-cv { display: none; }
-      .mobile-menu {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        min-height: 44px;
-        padding: 0 16px;
-        border-radius: 999px;
-        background: rgba(147,103,141,.16);
-        font-size: 15px;
-        font-weight: 700;
-      }
-      .hero { min-height: auto; padding: 66px 0 62px; }
-      .hero-grid { grid-template-columns: 1fr; gap: 44px; }
-      .section { padding: 80px 0; }
-      .section-head { grid-template-columns: 1fr; gap: 16px; }
-      .section-intro { margin-left: 0; }
-      .services { grid-template-columns: 1fr; }
-      .work-card, .work-card:nth-child(n+3) { grid-column: span 12; min-height: 290px; }
-      .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 42px; }
-      .form-row { grid-template-columns: 1fr; gap: 14px; }
-      .floating-cv { bottom: 14px; right: 14px; }
-    }
-
-    @media (max-width: 560px) {
-      html { scroll-padding-top: 78px; }
-      body::before { background-size: 56px 56px, 56px 56px, 56px 56px, 56px 56px; opacity: .6; }
-      body::after { opacity: .28; }
-      .brand { font-size: 21px; }
-      .brand::before { width: 11px; height: 11px; box-shadow: none; }
-      .brand-wrap { gap: 9px; align-items: center; }
-      .brand-subtitle { min-height: 32px; padding: 0 10px; font-size: 11px; line-height: 1.15; white-space: normal; max-width: 158px; border-radius: 14px; }
-      h1 { font-size: clamp(50px, 15vw, 72px); }
-      .hero-lead { font-size: 20px; }
-      .button { width: 100%; }
-      .actions { width: 100%; }
-      .section { padding: 66px 0; }
-      h2 { font-size: clamp(37px, 10.5vw, 50px); }
-      .section-intro { font-size: 17px; }
-      .hero-meta { padding: 24px; }
-      .service { min-height: 190px; padding: 24px; }
-      .service h3 { margin-top: 0; font-size: 27px; }
-      .facts { grid-template-columns: 1fr; }
-      .contact .button.blue { width: auto; }
-      .footer-inner { padding: 20px 0 94px; align-items: flex-start; flex-direction: column; }
-      .floating-cv { left: 14px; right: 14px; bottom: 12px; justify-content: center; }
-    }
-
-    @media (max-width: 420px) {
-      .mobile-menu { display: none; }
-      .nav { min-height: 84px; }
-      .brand { font-size: 20px; }
-      .brand-subtitle { max-width: 142px; font-size: 10.5px; padding: 0 9px; }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      html { scroll-behavior: auto; }
-      *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; }
+    @media(prefers-reduced-motion:reduce){
+      html{scroll-behavior:auto}
+      *,*:before,*:after{transition-duration:.01ms!important}
     }
   </style>
 </head>
 <body>
   <header class="site-header">
     <div class="wrap nav">
-      <div class="brand-wrap">
-        <a class="brand" href="#accueil" aria-label="Retour en haut">Olivier Mur</a>
-        <span class="brand-subtitle">Chef opérateur du son · Mixeur · Paris</span>
+      <div class="identity">
+        <a class="brand" href="#accueil">Olivier Mur</a>
+        <span class="role">Chef opérateur du son · Mixeur · Paris</span>
       </div>
       <nav class="nav-links" aria-label="Navigation principale">
         <a class="nav-services" href="#services">Services</a>
-        <a class="nav-realisations" href="#realisations">Réalisations</a>
-        <a class="nav-apropos" href="#apropos">À propos</a>
+        <a class="nav-work" href="#realisations">Réalisations</a>
+        <a class="nav-about" href="#apropos">À propos</a>
         <a class="nav-contact" href="#contact">Contact</a>
       </nav>
-      <a class="nav-cv" href="assets/olivier-mur-cv.pdf" download>Télécharger le CV ↓</a>
-      <a class="mobile-menu" href="#contact">Contact ↘</a>
+      <a class="nav-cv" href="assets/olivier-mur-cv.pdf" download>CV ↓</a>
+      <a class="mobile-nav" href="#contact">Contact ↘</a>
     </div>
   </header>
 
@@ -595,104 +320,83 @@
     <section class="hero" id="accueil">
       <div class="wrap hero-grid">
         <div>
-          <h1>Le son, sans détour.</h1>
+          <h1 class="hero-name"><span>Olivier</span><span>Mur</span></h1>
+          <h2 class="hero-title">Le son, sans détour.</h2>
           <p class="hero-lead">Prise de son de tournage, voix off et mixage broadcast. Plus de 15 ans d’expérience entre publicité, télévision, institutionnel, mode et documentaire.</p>
-          <div class="actions">
-            <a class="button dark" href="#realisations">Voir les réalisations ↓</a>
-            <a class="button ghost" href="assets/olivier-mur-cv.pdf" download>Télécharger le CV ↘</a>
+          <div class="hero-actions">
+            <a class="button primary" href="#realisations">Voir les réalisations ↓</a>
+            <a class="button secondary" href="assets/olivier-mur-cv.pdf" download>Télécharger le CV ↘</a>
           </div>
         </div>
-        <aside class="hero-meta">
-          <p class="label">Basé à</p>
-          <p>Paris & Île-de-France<br>Déplacements possibles</p>
-          <p class="label">Spécialités</p>
-          <p>Tournage · HF · Perche<br>Mixage TV · Billboards · Voix off</p>
-          <p class="label">Contact</p>
-          <p><a href="mailto:mur.olivier@yahoo.fr">mur.olivier@yahoo.fr</a><br><a href="tel:+33677962788">06 77 96 27 88</a></p>
-        </aside>
-      </div>
-    </section>
 
-    <section class="section" id="services">
-      <div class="wrap">
-        <div class="section-head">
-          <div class="eyebrow services-chip">Services</div>
-          <h2>Du plateau à la livraison broadcast.</h2>
-        </div>
-        <p class="section-intro">Une approche technique sobre et fiable : capturer proprement sur le tournage, puis livrer un son prêt pour l’antenne ou le web.</p>
-        <div class="services">
-          <article class="service">
-            <h3>Prise de son tournage</h3>
-            <p>Publicité, institutionnel, mode, télévision et documentaire. Travail en petite ou grande équipe, en décor naturel comme en studio.</p>
-          </article>
-          <article class="service">
-            <h3>Mixage broadcast</h3>
-            <p>Billboards, programmes courts et contenus TV : mixage, normalisation EBU R128, contrôle technique et préparation des livrables.</p>
-          </article>
-          <article class="service">
-            <h3>Voix off</h3>
-            <p>Enregistrement, direction technique, montage et nettoyage des prises sur station Nuendo, avec livraison adaptée au projet.</p>
-          </article>
-          <article class="service">
-            <h3>Montage & mixage</h3>
-            <p>Post-production stéréo, multicanal et Dolby Atmos, avec maîtrise des normes de diffusion et des workflows professionnels.</p>
-          </article>
-        </div>
+        <button class="hero-visual work-card" data-youtube="3EuHGE7dXzY" aria-label="Lire STIHL sur YouTube">
+          <img src="https://i.ytimg.com/vi/3EuHGE7dXzY/maxresdefault.jpg" alt="Aperçu du projet STIHL">
+          <span class="geo one"></span><span class="geo two"></span>
+          <span class="feature-meta">
+            <span class="feature-label">Projet sélectionné</span>
+            <span class="feature-title">STIHL — portrait de marque</span>
+            <span class="feature-role">Prise de son · Montage son · Mixage aux normes TV</span>
+          </span>
+        </button>
       </div>
     </section>
 
     <section class="section" id="realisations">
       <div class="wrap">
-        <div class="section-head">
-          <div class="eyebrow works-chip">Réalisations</div>
-          <h2>Une sélection de projets.</h2>
+        <div class="section-kicker" style="color:var(--orange)">Réalisations</div>
+        <h2 class="section-title">Des projets pensés pour être vus — et entendus.</h2>
+        <div class="work-grid">
+          <button class="work-card" data-youtube="8LMGeS5t0Jg" aria-label="Lire Redouane Bougheraba et Paul de Saint Sernin">
+            <img src="https://i.ytimg.com/vi/8LMGeS5t0Jg/maxresdefault.jpg" alt="Aperçu du projet">
+            <span class="work-overlay"><span class="work-tag">Web / contenu</span><span><span class="work-title">Redouane Bougheraba × Paul de Saint Sernin</span><span class="work-role">Prise de son</span><span class="play">▶</span></span></span>
+          </button>
+          <button class="work-card" data-youtube="G0YcvuTYBuw" aria-label="Lire le projet audiovisuel">
+            <img src="https://i.ytimg.com/vi/G0YcvuTYBuw/hqdefault.jpg" alt="Aperçu du projet audiovisuel">
+            <span class="work-overlay"><span class="work-tag">Audiovisuel</span><span><span class="work-title">Projet audiovisuel</span><span class="work-role">Prise de son · Mixage</span><span class="play">▶</span></span></span>
+          </button>
+          <button class="work-card" data-youtube="YxVIWGeIY-4" aria-label="Lire Farrah El Dibany à l'Institut Giacometti">
+            <img src="https://i.ytimg.com/vi/YxVIWGeIY-4/hqdefault.jpg" alt="Aperçu Farrah El Dibany">
+            <span class="work-overlay"><span class="work-tag">Culture / événement</span><span><span class="work-title">Farrah El Dibany — Institut Giacometti</span><span class="work-role">Prise de son · Mixage</span><span class="play">▶</span></span></span>
+          </button>
+          <button class="work-card" data-youtube="tYdL7niZheY" aria-label="Lire Le Prochain">
+            <img src="https://i.ytimg.com/vi/tYdL7niZheY/hqdefault.jpg" alt="Aperçu du court-métrage Le Prochain">
+            <span class="work-overlay"><span class="work-tag">Fiction</span><span><span class="work-title">Le Prochain — court-métrage</span><span class="work-role">Prise de son · Mixage</span><span class="play">▶</span></span></span>
+          </button>
+          <button class="work-card" data-youtube="awUecp48qmM" aria-label="Lire France Pare-Brise Paquito IN">
+            <img src="https://i.ytimg.com/vi/awUecp48qmM/hqdefault.jpg" alt="France Pare-Brise Paquito IN">
+            <span class="work-overlay"><span class="work-tag">Publicité / broadcast</span><span><span class="work-title">France Pare-Brise × R2 — Paquito IN</span><span class="work-role">Prise de son · Mixage aux normes TV</span><span class="play">▶</span></span></span>
+          </button>
+          <button class="work-card" data-youtube="eDmx8m2TqOA" aria-label="Lire France Pare-Brise Paquito OUT">
+            <img src="https://i.ytimg.com/vi/eDmx8m2TqOA/hqdefault.jpg" alt="France Pare-Brise Paquito OUT">
+            <span class="work-overlay"><span class="work-tag">Publicité / broadcast</span><span><span class="work-title">France Pare-Brise × R2 — Paquito OUT</span><span class="work-role">Prise de son · Mixage aux normes TV</span><span class="play">▶</span></span></span>
+          </button>
+          <button class="work-card" data-youtube="Fev1KYL57zc" aria-label="Lire France Pare-Brise Saint-Gobain">
+            <img src="https://i.ytimg.com/vi/Fev1KYL57zc/hqdefault.jpg" alt="France Pare-Brise Saint-Gobain">
+            <span class="work-overlay"><span class="work-tag">Publicité / broadcast</span><span><span class="work-title">France Pare-Brise — Saint-Gobain</span><span class="work-role">Prise de son · Mixage aux normes TV</span><span class="play">▶</span></span></span>
+          </button>
         </div>
-        <div class="work-grid" id="work-grid">
-          <button class="work-card" data-youtube="3EuHGE7dXzY" aria-label="Lire STIHL sur YouTube">
-            <img class="work-thumb" src="https://i.ytimg.com/vi/3EuHGE7dXzY/maxresdefault.jpg" alt="Aperçu du projet STIHL" loading="lazy">
-            <span class="work-overlay"><span class="work-tag">Publicité / marque</span><span><span class="work-title">STIHL — portrait de marque</span><span class="work-role">Prise de son · Montage son · Mixage aux normes TV</span><span class="play" aria-hidden="true">▶</span></span></span>
-          </button>
-          <button class="work-card" data-youtube="8LMGeS5t0Jg" aria-label="Lire la réalisation avec Redouane Bougheraba et Paul de Saint Sernin sur YouTube">
-            <img class="work-thumb" src="https://i.ytimg.com/vi/8LMGeS5t0Jg/maxresdefault.jpg" alt="Aperçu du projet web" loading="lazy">
-            <span class="work-overlay"><span class="work-tag">Web / contenu</span><span><span class="work-title">Redouane Bougheraba × Paul de Saint Sernin</span><span class="work-role">Prise de son</span><span class="play" aria-hidden="true">▶</span></span></span>
-          </button>
-          <button class="work-card" data-youtube="G0YcvuTYBuw" aria-label="Lire le projet audiovisuel sur YouTube">
-            <img class="work-thumb" src="https://i.ytimg.com/vi/G0YcvuTYBuw/hqdefault.jpg" alt="Aperçu du projet audiovisuel" loading="lazy">
-            <span class="work-overlay"><span class="work-tag">Audiovisuel</span><span><span class="work-title">Projet audiovisuel</span><span class="work-role">Prise de son · Mixage</span><span class="play" aria-hidden="true">▶</span></span></span>
-          </button>
-          <button class="work-card" data-youtube="YxVIWGeIY-4" aria-label="Lire Farrah El Dibany à l'Institut Giacometti sur YouTube">
-            <img class="work-thumb" src="https://i.ytimg.com/vi/YxVIWGeIY-4/hqdefault.jpg" alt="Aperçu du projet Farrah El Dibany à l’Institut Giacometti" loading="lazy">
-            <span class="work-overlay"><span class="work-tag">Culture / événement</span><span><span class="work-title">Farrah El Dibany — Institut Giacometti</span><span class="work-role">Prise de son · Mixage</span><span class="play" aria-hidden="true">▶</span></span></span>
-          </button>
-          <button class="work-card" data-youtube="tYdL7niZheY" aria-label="Lire Le Prochain sur YouTube">
-            <img class="work-thumb" src="https://i.ytimg.com/vi/tYdL7niZheY/hqdefault.jpg" alt="Aperçu du court-métrage Le Prochain" loading="lazy">
-            <span class="work-overlay"><span class="work-tag">Fiction</span><span><span class="work-title">Le Prochain — court-métrage</span><span class="work-role">Prise de son · Mixage</span><span class="play" aria-hidden="true">▶</span></span></span>
-          </button>
-          <button class="work-card" data-youtube="awUecp48qmM" aria-label="Lire France Pare-Brise x R2 CDM Rugby Paquito IN sur YouTube">
-            <img class="work-thumb" src="https://i.ytimg.com/vi/awUecp48qmM/hqdefault.jpg" alt="Aperçu France Pare-Brise x R2 CDM Rugby Paquito IN" loading="lazy">
-            <span class="work-overlay"><span class="work-tag">Publicité / broadcast</span><span><span class="work-title">France Pare-Brise × R2 — Paquito IN</span><span class="work-role">Prise de son · Mixage aux normes TV</span><span class="play" aria-hidden="true">▶</span></span></span>
-          </button>
-          <button class="work-card" data-youtube="eDmx8m2TqOA" aria-label="Lire France Pare-Brise x R2 CDM Rugby Paquito OUT sur YouTube">
-            <img class="work-thumb" src="https://i.ytimg.com/vi/eDmx8m2TqOA/hqdefault.jpg" alt="Aperçu France Pare-Brise x R2 CDM Rugby Paquito OUT" loading="lazy">
-            <span class="work-overlay"><span class="work-tag">Publicité / broadcast</span><span><span class="work-title">France Pare-Brise × R2 — Paquito OUT</span><span class="work-role">Prise de son · Mixage aux normes TV</span><span class="play" aria-hidden="true">▶</span></span></span>
-          </button>
-          <button class="work-card" data-youtube="Fev1KYL57zc" aria-label="Lire France Pare-Brise une marque de Saint-Gobain sur YouTube">
-            <img class="work-thumb" src="https://i.ytimg.com/vi/Fev1KYL57zc/hqdefault.jpg" alt="Aperçu France Pare-Brise, une marque de Saint-Gobain" loading="lazy">
-            <span class="work-overlay"><span class="work-tag">Publicité / broadcast</span><span><span class="work-title">France Pare-Brise — Saint-Gobain</span><span class="work-role">Prise de son · Mixage aux normes TV</span><span class="play" aria-hidden="true">▶</span></span></span>
-          </button>
+      </div>
+    </section>
+
+    <section class="section" id="services">
+      <div class="wrap">
+        <div class="section-kicker" style="color:var(--green)">Services</div>
+        <h2 class="section-title">Du plateau à la livraison finale.</h2>
+        <div class="services-list">
+          <article class="service-row"><span class="service-mark"></span><h3>Prise de son tournage</h3><p>Publicité, institutionnel, mode, télévision et documentaire. Petites ou grandes équipes, décor naturel ou studio.</p></article>
+          <article class="service-row"><span class="service-mark"></span><h3>Mixage broadcast</h3><p>Billboards, programmes courts et contenus TV : mixage, normalisation EBU R128, contrôle et préparation des livrables.</p></article>
+          <article class="service-row"><span class="service-mark"></span><h3>Voix off</h3><p>Enregistrement, direction technique, montage et nettoyage des prises sur station Nuendo, avec livraison adaptée au projet.</p></article>
+          <article class="service-row"><span class="service-mark"></span><h3>Montage & mixage</h3><p>Post-production stéréo, multicanal et Dolby Atmos, avec maîtrise des normes de diffusion et workflows professionnels.</p></article>
         </div>
       </div>
     </section>
 
     <section class="section" id="apropos">
       <div class="wrap">
-        <div class="section-head">
-          <div class="eyebrow about-chip">À propos</div>
-          <h2>Expérience plateau, exigence de post-production.</h2>
-        </div>
+        <div class="section-kicker" style="color:var(--blue)">À propos</div>
         <div class="about-grid">
           <div>
-            <p class="about-big">Chef opérateur du son indépendant depuis 2009, diplômé de l’ENS Louis-Lumière.</p>
+            <p class="about-lead">Chef opérateur du son indépendant depuis 2009, diplômé de l’ENS Louis-Lumière.</p>
             <div class="facts">
               <div class="fact"><strong>15+ ans</strong><span>d’expérience</span></div>
               <div class="fact"><strong>C1</strong><span>anglais professionnel</span></div>
@@ -701,33 +405,28 @@
             </div>
           </div>
           <div class="about-copy">
-            <p>J’interviens sur des tournages très différents, de l’interview en équipe légère aux productions internationales. Je travaille avec du matériel professionnel Zaxcom, Audio Ltd, Schoeps, K-Tek et Cinela, avec une attention particulière portée à la discrétion des HF et à la fluidité du plateau.</p>
+            <p>J’interviens de l’interview en équipe légère aux productions internationales, avec une attention particulière portée à la discrétion des HF, à la qualité de la prise et à la fluidité du plateau.</p>
             <p>En post-production, je travaille notamment sur Nuendo et Pro Tools pour le montage, le mixage et les livraisons répondant aux normes de diffusion.</p>
-            <div class="references" aria-label="Sélection de références">
+            <div class="references">
               <span class="reference">Netflix</span><span class="reference">France 2</span><span class="reference">M6</span><span class="reference">LVMH</span><span class="reference">Google</span><span class="reference">Renault</span><span class="reference">Dior</span><span class="reference">Hermès</span><span class="reference">Chanel</span><span class="reference">Porsche</span><span class="reference">TikTok</span><span class="reference">PSG</span>
             </div>
-            <div class="actions" style="margin-top:30px">
-              <a class="button ghost" href="assets/olivier-mur-cv.pdf" download>Télécharger le CV complet ↓</a>
-            </div>
+            <div style="margin-top:28px"><a class="button secondary" href="assets/olivier-mur-cv.pdf" download>Télécharger le CV complet ↓</a></div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="contact" id="contact">
+    <section class="contact-section" id="contact">
       <div class="wrap section">
-        <div class="section-head">
-          <div class="eyebrow contact-chip">Contact</div>
-          <h2>Un tournage, un mixage, une livraison urgente ?</h2>
-        </div>
+        <div class="section-kicker" style="color:var(--mauve)">Contact</div>
+        <h2 class="section-title">Un tournage, un mixage, une livraison urgente ?</h2>
         <div class="contact-grid">
-          <div class="contact-details">
+          <div class="contact-copy">
             <p>Disponible pour des collaborations ponctuelles ou régulières.</p>
             <p><a href="mailto:mur.olivier@yahoo.fr">mur.olivier@yahoo.fr</a><br><a href="tel:+33677962788">+33 6 77 96 27 88</a></p>
             <p>Paris & Île-de-France<br>France / international selon projet</p>
             <p><a href="assets/olivier-mur-cv.pdf" download>Télécharger le CV ↘</a></p>
           </div>
-
           <form class="contact-form" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/merci.html">
             <input type="hidden" name="form-name" value="contact">
             <p class="honeypot"><label>Ne pas remplir : <input name="bot-field"></label></p>
@@ -737,8 +436,8 @@
             </div>
             <div class="field"><label for="subject">Objet</label><input id="subject" name="subject" type="text" placeholder="Tournage, mixage billboard, voix off…" required></div>
             <div class="field"><label for="message">Message</label><textarea id="message" name="message" placeholder="Dates, format, lieu et besoins…" required></textarea></div>
-            <button class="button blue" type="submit">Envoyer le message →</button>
-            <p class="form-note">Formulaire prêt pour Netlify Forms. En local, utilisez directement l’adresse e-mail ci-contre.</p>
+            <button class="button" type="submit">Envoyer le message →</button>
+            <p class="form-note">Formulaire prêt pour Netlify Forms.</p>
           </form>
         </div>
       </div>
@@ -752,25 +451,25 @@
     </div>
   </footer>
 
-  <a class="floating-cv" href="assets/olivier-mur-cv.pdf" download aria-label="Télécharger le CV d'Olivier Mur">Télécharger le CV ↓</a>
+  <a class="floating-cv" href="assets/olivier-mur-cv.pdf" download>Télécharger le CV ↓</a>
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    document.querySelectorAll('.work-card[data-youtube]').forEach(card => {
+    document.querySelectorAll('[data-youtube]').forEach(card => {
       card.addEventListener('click', () => {
         const id = card.dataset.youtube;
         const player = document.createElement('div');
         player.className = card.className;
-        player.setAttribute('role', 'region');
-        player.setAttribute('aria-label', 'Lecteur vidéo YouTube');
+        player.setAttribute('role','region');
+        player.setAttribute('aria-label','Lecteur vidéo YouTube');
 
         const iframe = document.createElement('iframe');
-        iframe.className = 'video-frame';
-        iframe.src = `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0`;
-        iframe.title = 'Vidéo YouTube';
-        iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
-        iframe.allowFullscreen = true;
+        iframe.className='video-frame';
+        iframe.src=`https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0`;
+        iframe.title='Vidéo YouTube';
+        iframe.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+        iframe.allowFullscreen=true;
 
         player.appendChild(iframe);
         card.replaceWith(player);
