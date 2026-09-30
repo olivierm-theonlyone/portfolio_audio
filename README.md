@@ -37,3 +37,5 @@ Version v17 : la vidéo mise en avant devient « STIHL — C'est dans ma nature 
 Version v18 : PDF CV remplacé par la version transmise le 30 septembre 2026.
 
 Version v19 : adresse email de contact du site remplacée par oliviermur.sound@gmail.com.
+
+Version v20 : CV fourni le 30 septembre 2026 (adresse Gmail), liens vers assets/olivier-mur-cv-2026.pdf (nouveau nom pour eviter le cache). Ancien chemin egalement mis a jour. Pour Netlify/GitHub, importer aussi le dossier assets, pas seulement index.html.
