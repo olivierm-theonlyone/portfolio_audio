@@ -278,6 +278,42 @@
       line-height:1.68;
       font-size:16px;
     }
+    .service-row.voice-service{
+      grid-column:1 / -1;
+      min-height:230px;
+      display:grid;
+      grid-template-columns:minmax(0,1.15fr) minmax(320px,.85fr);
+      gap:42px;
+      align-items:end;
+    }
+    .voice-service .service-mark{margin-bottom:34px}
+    .voice-copy{position:relative;z-index:1}
+    .voice-demo{
+      position:relative;z-index:2;
+      padding:20px;
+      border:1px solid rgba(255,255,255,.14);
+      border-radius:16px;
+      background:rgba(255,255,255,.045);
+      backdrop-filter:blur(10px);
+    }
+    .voice-demo-label{
+      display:flex;align-items:center;justify-content:space-between;gap:16px;
+      margin-bottom:14px;
+      color:#e9e6e0;
+      font-size:12px;font-weight:700;letter-spacing:.09em;text-transform:uppercase
+    }
+    .voice-demo-label span:last-child{color:#8f8a84;font-size:10px}
+    .audio-ui{display:grid;grid-template-columns:48px 1fr auto;gap:14px;align-items:center}
+    .audio-toggle{
+      width:48px;height:48px;padding:0;border:0;border-radius:50%;
+      display:grid;place-items:center;
+      background:var(--mauve);color:white;
+      font-size:15px;font-weight:800;cursor:pointer
+    }
+    .audio-toggle:hover{transform:scale(1.04)}
+    .audio-progress{width:100%;accent-color:var(--mauve);cursor:pointer}
+    .audio-time{min-width:70px;text-align:right;color:#aaa6a0;font-size:12px;font-variant-numeric:tabular-nums}
+    .voice-demo-note{margin-top:10px!important;color:#85817b!important;font-size:12px!important}
 
     .about-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:72px}
     .about-lead{
@@ -381,6 +417,7 @@
       .hero-visual{min-height:390px}
       .work-card{grid-column:span 6}
       .services-list{grid-template-columns:1fr 1fr}
+      .service-row.voice-service{grid-template-columns:1fr;gap:26px;align-items:start}
       .about-grid,.contact-grid{grid-template-columns:1fr;gap:44px}
       .references{grid-template-columns:repeat(4,minmax(0,1fr))}
     }
@@ -405,6 +442,9 @@
       .service-mark{margin-bottom:42px}
       .service-row h3{font-size:29px}
       .service-row p{font-size:15px}
+      .service-row.voice-service{grid-column:auto;grid-template-columns:1fr;min-height:0}
+      .audio-ui{grid-template-columns:44px 1fr}
+      .audio-time{grid-column:2;text-align:left;margin-top:-7px}
       .references{grid-template-columns:repeat(3,minmax(0,1fr))}
       .form-row{grid-template-columns:1fr}
       .floating-cv{left:14px;right:14px;bottom:12px}
@@ -447,12 +487,12 @@
           </div>
         </div>
 
-        <button class="hero-visual work-card" data-youtube="3EuHGE7dXzY" aria-label="Lire STIHL sur YouTube">
-          <img src="https://i.ytimg.com/vi/3EuHGE7dXzY/maxresdefault.jpg" alt="Aperçu du projet STIHL">
+        <button class="hero-visual work-card" data-youtube="3EuHGE7dXzY" aria-label="Lire STIHL — C’est dans ma nature sur YouTube">
+          <img src="https://i.ytimg.com/vi/3EuHGE7dXzY/maxresdefault.jpg" alt="STIHL — C’est dans ma nature">
           <span class="geo one"></span><span class="geo two"></span>
           <span class="feature-meta">
             <span class="feature-label">Documentaire · Publicité · Réseaux sociaux</span>
-            <span class="feature-title">STIHL — C'est dans ma nature</span>
+            <span class="feature-title">STIHL — C’est dans ma nature</span>
             <span class="feature-role">Prise de son · Montage son · Mixage aux normes TV</span>
           </span>
         </button>
@@ -464,29 +504,34 @@
         <div class="section-kicker" style="color:var(--orange)">Réalisations</div>
         <h2 class="section-title">Des projets pensés pour être vus — et entendus.</h2>
         <div class="work-grid">
-          <button class="work-card" data-youtube="8LMGeS5t0Jg" aria-label="Lire Le Prochain">
-            <img src="https://i.ytimg.com/vi/8LMGeS5t0Jg/hqdefault.jpg" alt="Aperçu du court-métrage Le Prochain">
-            <span class="work-overlay"><span class="work-tag">Fiction</span><span><span class="work-title">Le Prochain — court-métrage</span><span class="work-role">Prise de son</span><span class="play">▶</span></span></span>
+          <button class="work-card" data-youtube="gYWOH8pIFcU" aria-label="Lire Miléade — Villages Clubs & Hôtels">
+            <img src="https://i.ytimg.com/vi/gYWOH8pIFcU/hqdefault.jpg" alt="Miléade — Villages Clubs & Hôtels">
+            <span class="work-overlay"><span class="work-tag">Publicité · Tourisme · Digital</span><span><span class="work-title">Miléade — Villages Clubs & Hôtels</span><span class="work-role">Prise de son · Mixage</span><span class="play">▶</span></span></span>
           </button>
-          <button class="work-card" data-youtube="G0YcvuTYBuw" aria-label="Lire Help us">
-            <img src="https://i.ytimg.com/vi/G0YcvuTYBuw/hqdefault.jpg" alt="Aperçu du projet Help us">
-            <span class="work-overlay"><span class="work-tag">Publicité web · Application</span><span><span class="work-title">Help us</span><span class="work-role">Prise de son · Mixage</span><span class="play">▶</span></span></span>
+
+          <button class="work-card" data-youtube="Mp-FcE0yHZ8" aria-label="Lire STIHL — Équipe de France Timber Sports">
+            <img src="https://i.ytimg.com/vi/Mp-FcE0yHZ8/hqdefault.jpg" alt="STIHL — Équipe de France Timber Sports">
+            <span class="work-overlay"><span class="work-tag">Documentaire · Sport · Brand content</span><span><span class="work-title">STIHL — Équipe de France Timber Sports</span><span class="work-role">Prise de son</span><span class="play">▶</span></span></span>
           </button>
-          <button class="work-card" data-youtube="YxVIWGeIY-4" aria-label="Lire Redouane Bougheraba et Paul de Saint Sernin">
-            <img src="https://i.ytimg.com/vi/YxVIWGeIY-4/hqdefault.jpg" alt="Aperçu Redouane Bougheraba et Paul de Saint Sernin">
-            <span class="work-overlay"><span class="work-tag">Publicité · Réseaux sociaux</span><span><span class="work-title">Parions Sport — Redouane Bougheraba × Paul de Saint Sernin</span><span class="work-role">Prise de son · Mixage</span><span class="play">▶</span></span></span>
+
+          <button class="work-card" data-youtube="EflUSggXcP0" aria-label="Lire Sultan Achour — Saison 1, épisode 1">
+            <img src="https://i.ytimg.com/vi/EflUSggXcP0/hqdefault.jpg" alt="Sultan Achour — Saison 1, épisode 1">
+            <span class="work-overlay"><span class="work-tag">Série TV · Fiction</span><span><span class="work-title">Sultan Achour — Saison 1, épisode 1</span><span class="work-role">Montage son · Mixage</span><span class="play">▶</span></span></span>
           </button>
-          <button class="work-card" data-youtube="tYdL7niZheY" aria-label="Lire Farrah El Dibany à l’Institut Giacometti">
-            <img src="https://i.ytimg.com/vi/tYdL7niZheY/hqdefault.jpg" alt="Aperçu Farrah El Dibany à l’Institut Giacometti">
-            <span class="work-overlay"><span class="work-tag">Culture / événement</span><span><span class="work-title">Farrah El Dibany — Institut Giacometti</span><span class="work-role">Prise de son · Mixage</span><span class="play">▶</span></span></span>
+
+          <button class="work-card" data-youtube="XdmlI2nA60U" aria-label="Lire Embassy of Ireland — Saint Patrick’s Day">
+            <img src="https://i.ytimg.com/vi/XdmlI2nA60U/hqdefault.jpg" alt="Embassy of Ireland — Saint Patrick’s Day">
+            <span class="work-overlay"><span class="work-tag">Institutionnel · Événement · Culture</span><span><span class="work-title">Embassy of Ireland — Saint Patrick’s Day</span><span class="work-role">Prise de son · Mixage</span><span class="play">▶</span></span></span>
           </button>
-<button class="work-card" data-youtube="eDmx8m2TqOA" aria-label="Lire France Pare-Brise Paquito">
-            <img src="https://i.ytimg.com/vi/eDmx8m2TqOA/hqdefault.jpg" alt="France Pare-Brise Paquito">
-            <span class="work-overlay"><span class="work-tag">Publicité / broadcast</span><span><span class="work-title">France Pare-Brise — Paquito</span><span class="work-role">Prise de son · Mixage aux normes TV</span><span class="play">▶</span></span></span>
+
+          <button class="work-card" data-youtube="eDmx8m2TqOA" aria-label="Lire France Pare-Brise — Paquito">
+            <img src="https://i.ytimg.com/vi/eDmx8m2TqOA/hqdefault.jpg" alt="France Pare-Brise — Paquito">
+            <span class="work-overlay"><span class="work-tag">Publicité · Broadcast</span><span><span class="work-title">France Pare-Brise — Paquito</span><span class="work-role">Prise de son · Mixage aux normes TV</span><span class="play">▶</span></span></span>
           </button>
-          <button class="work-card" data-youtube="Fev1KYL57zc" aria-label="Lire France Pare-Brise Saint-Gobain">
-            <img src="https://i.ytimg.com/vi/Fev1KYL57zc/hqdefault.jpg" alt="France Pare-Brise Saint-Gobain">
-            <span class="work-overlay"><span class="work-tag">Publicité / broadcast</span><span><span class="work-title">France Pare-Brise — Saint-Gobain</span><span class="work-role">Prise de son · Mixage aux normes TV</span><span class="play">▶</span></span></span>
+
+          <button class="work-card" data-youtube="tYdL7niZheY" aria-label="Lire Farrah El Dibany — Institut Giacometti">
+            <img src="https://i.ytimg.com/vi/tYdL7niZheY/hqdefault.jpg" alt="Farrah El Dibany — Institut Giacometti">
+            <span class="work-overlay"><span class="work-tag">Culture · Musique · Événement</span><span><span class="work-title">Farrah El Dibany — Institut Giacometti</span><span class="work-role">Prise de son · Mixage</span><span class="play">▶</span></span></span>
           </button>
         </div>
       </div>
@@ -497,10 +542,33 @@
         <div class="section-kicker" style="color:var(--green)">Services</div>
         <h2 class="section-title">Du plateau à la livraison finale.</h2>
         <div class="services-list">
-          <article class="service-row"><span class="service-mark"></span><h3>Prise de son tournage</h3><p>Publicité, institutionnel, mode, télévision et documentaire. Petites ou grandes équipes, décor naturel ou studio.</p></article>
-          <article class="service-row"><span class="service-mark"></span><h3>Mixage broadcast</h3><p>Billboards, programmes courts et contenus TV : mixage, normalisation EBU R128, contrôle et préparation des livrables.</p></article>
-          <article class="service-row"><span class="service-mark"></span><h3>Voix off</h3><p>Enregistrement, direction technique, montage et nettoyage des prises sur station Nuendo, avec livraison adaptée au projet.</p></article>
-          <article class="service-row"><span class="service-mark"></span><h3>Montage & mixage</h3><p>Post-production stéréo et multicanal, avec maîtrise des normes de diffusion et des workflows professionnels.</p></article>
+          <article class="service-row">
+            <span class="service-mark"></span>
+            <h3>Prise de son</h3>
+            <p>Publicité, institutionnel, mode, télévision et documentaire. Petites ou grandes équipes, en décor naturel comme en studio.</p>
+          </article>
+          <article class="service-row">
+            <span class="service-mark"></span>
+            <h3>Montage, mixage & broadcast</h3>
+            <p>Montage son, mixage stéréo et multicanal, puis finishing broadcast : normalisation EBU R128, contrôle de conformité, déclinaisons et préparation des livrables prêts à diffuser.</p>
+          </article>
+          <article class="service-row voice-service">
+            <div class="voice-copy">
+              <span class="service-mark"></span>
+              <h3>Voix off</h3>
+              <p>Interprétation de voix off en français depuis mon studio personnel, avec enregistrement, montage et nettoyage. Publicité, narration, corporate, e-learning et formats digitaux.</p>
+            </div>
+            <div class="voice-demo">
+              <div class="voice-demo-label"><span>Démo voix off</span><span>00:49</span></div>
+              <div class="audio-ui">
+                <button class="audio-toggle" type="button" aria-label="Lire la démo voix off">▶</button>
+                <input class="audio-progress" type="range" min="0" max="100" value="0" step="0.1" aria-label="Progression de la démo voix off">
+                <span class="audio-time">0:00 / 0:49</span>
+              </div>
+              <p class="voice-demo-note">Publicité · narration · livre audio</p>
+              <audio class="voice-audio" preload="metadata" src="assets/audio/demo-voix-off-olivier-mur.mp3"></audio>
+            </div>
+          </article>
         </div>
       </div>
     </section>
@@ -599,6 +667,40 @@
         card.replaceWith(player);
       });
     });
+  
+
+    document.querySelectorAll('.voice-demo').forEach(player => {
+      const audio = player.querySelector('.voice-audio');
+      const toggle = player.querySelector('.audio-toggle');
+      const progress = player.querySelector('.audio-progress');
+      const time = player.querySelector('.audio-time');
+
+      const formatTime = seconds => {
+        if (!Number.isFinite(seconds)) return '0:00';
+        const m = Math.floor(seconds / 60);
+        const s = Math.floor(seconds % 60).toString().padStart(2, '0');
+        return `${m}:${s}`;
+      };
+
+      const refresh = () => {
+        const duration = audio.duration || 0;
+        progress.value = duration ? (audio.currentTime / duration) * 100 : 0;
+        time.textContent = `${formatTime(audio.currentTime)} / ${formatTime(duration || 49)}`;
+      };
+
+      toggle.addEventListener('click', () => {
+        if (audio.paused) audio.play(); else audio.pause();
+      });
+      audio.addEventListener('play', () => { toggle.textContent = 'Ⅱ'; toggle.setAttribute('aria-label','Mettre la démo voix off en pause'); });
+      audio.addEventListener('pause', () => { toggle.textContent = '▶'; toggle.setAttribute('aria-label','Lire la démo voix off'); });
+      audio.addEventListener('timeupdate', refresh);
+      audio.addEventListener('loadedmetadata', refresh);
+      audio.addEventListener('ended', () => { audio.currentTime = 0; refresh(); });
+      progress.addEventListener('input', () => {
+        if (audio.duration) audio.currentTime = (Number(progress.value) / 100) * audio.duration;
+      });
+    });
+
   </script>
 </body>
 </html>
