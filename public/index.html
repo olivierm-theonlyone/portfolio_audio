@@ -315,15 +315,67 @@
     .audio-time{min-width:70px;text-align:right;color:#aaa6a0;font-size:12px;font-variant-numeric:tabular-nums}
     .voice-demo-note{margin-top:10px!important;color:#85817b!important;font-size:12px!important}
 
-    .about-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:72px}
-    .about-lead{
-      margin:0;font-family:"Space Grotesk";font-size:clamp(34px,4vw,54px);line-height:1.04;letter-spacing:-.05em
+    .about-showcase{
+      display:grid;grid-template-columns:minmax(360px,.92fr) minmax(0,1.08fr);
+      gap:clamp(50px,7vw,96px);align-items:center
     }
+    .about-portrait-wrap{position:relative;padding:34px 34px 42px 28px;isolation:isolate}
+    .about-portrait{
+      position:relative;z-index:2;overflow:hidden;border-radius:2px;
+      min-height:640px;border:1px solid rgba(255,255,255,.16);background:#171719;
+      box-shadow:0 28px 70px rgba(0,0,0,.34)
+    }
+    .about-portrait img{
+      position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 42%;
+      filter:saturate(.88) contrast(1.03) brightness(.9)
+    }
+    .about-portrait:after{
+      content:"";position:absolute;inset:0;pointer-events:none;
+      background:linear-gradient(180deg,rgba(5,5,8,.03),rgba(5,5,8,.14) 68%,rgba(5,5,8,.34))
+    }
+    .about-shape{position:absolute;z-index:1;pointer-events:none}
+    .about-shape.green{
+      width:190px;height:190px;left:-10px;top:0;background:var(--green);opacity:.88;
+      clip-path:polygon(0 0,100% 0,72% 100%,0 78%)
+    }
+    .about-shape.orange{
+      width:260px;height:155px;right:-10px;bottom:0;background:var(--orange);opacity:.9;
+      clip-path:polygon(24% 0,100% 24%,78% 100%,0 78%)
+    }
+    .about-shape.blue{
+      width:130px;height:130px;right:2px;top:48px;border:2px solid rgba(111,124,255,.9);
+      transform:rotate(18deg);z-index:3
+    }
+    .about-shape.mauve{
+      width:62px;height:62px;left:4px;bottom:76px;border:1px solid rgba(184,124,174,.9);
+      transform:rotate(45deg);z-index:3
+    }
+    .about-content{position:relative;z-index:2}
+    .about-eyebrow{
+      display:inline-flex;align-items:center;gap:10px;margin-bottom:18px;color:#aeb5ff;
+      font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase
+    }
+    .about-eyebrow:before{content:"";width:34px;height:2px;background:var(--blue)}
+    .about-lead{
+      max-width:760px;margin:0 0 30px;font-family:"Space Grotesk";
+      font-size:clamp(38px,4.5vw,66px);line-height:.98;letter-spacing:-.058em
+    }
+    .about-copy{max-width:740px}
     .about-copy p{color:#bbb6af;font-size:18px;line-height:1.75}
-    .facts{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;margin-top:30px;background:var(--line);border:1px solid var(--line)}
-    .fact{padding:22px;background:var(--bg)}
-    .fact strong{display:block;font-family:"Space Grotesk";font-size:27px;margin-bottom:5px}
-    .fact span{color:#8f8b85;font-size:15px;line-height:1.4}
+    .facts{
+      display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-top:34px;
+      background:transparent;border:0
+    }
+    .fact{
+      min-height:118px;padding:18px 16px;border:1px solid rgba(255,255,255,.12);
+      border-top:3px solid rgba(111,124,255,.72);border-radius:12px;background:rgba(255,255,255,.025)
+    }
+    .fact:nth-child(2){border-top-color:rgba(159,191,119,.85)}
+    .fact:nth-child(3){border-top-color:rgba(213,139,103,.85)}
+    .fact:nth-child(4){border-top-color:rgba(184,124,174,.85)}
+    .fact strong{display:block;font-family:"Space Grotesk";font-size:28px;margin-bottom:8px}
+    .fact span{color:#aaa6a0;font-size:14px;line-height:1.4}
+    .about-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
     .references{
       display:grid;
       grid-template-columns:repeat(6,minmax(0,1fr));
@@ -418,7 +470,10 @@
       .work-card{grid-column:span 6}
       .services-list{grid-template-columns:1fr 1fr}
       .service-row.voice-service{grid-template-columns:1fr;gap:26px;align-items:start}
-      .about-grid,.contact-grid{grid-template-columns:1fr;gap:44px}
+      .about-showcase,.contact-grid{grid-template-columns:1fr;gap:44px}
+      .about-portrait-wrap{max-width:680px;width:100%;margin:0 auto}
+      .about-portrait{min-height:560px}
+      .facts{grid-template-columns:repeat(2,minmax(0,1fr))}
       .references{grid-template-columns:repeat(4,minmax(0,1fr))}
     }
     @media(max-width:650px){
@@ -445,6 +500,14 @@
       .service-row.voice-service{grid-column:auto;grid-template-columns:1fr;min-height:0}
       .audio-ui{grid-template-columns:44px 1fr}
       .audio-time{grid-column:2;text-align:left;margin-top:-7px}
+      .about-portrait-wrap{padding:24px 18px 30px 14px}
+      .about-portrait{min-height:470px}
+      .about-shape.green{width:130px;height:130px}
+      .about-shape.orange{width:180px;height:110px}
+      .about-shape.blue{width:92px;height:92px;right:0;top:34px}
+      .about-lead{font-size:11vw}
+      .facts{grid-template-columns:1fr 1fr}
+      .fact{min-height:104px}
       .references{grid-template-columns:repeat(3,minmax(0,1fr))}
       .form-row{grid-template-columns:1fr}
       .floating-cv{left:14px;right:14px;bottom:12px}
@@ -576,19 +639,32 @@
     <section class="section" id="apropos">
       <div class="wrap">
         <div class="section-kicker" style="color:var(--blue)">À propos</div>
-        <div class="about-grid">
-          <div>
+        <div class="about-showcase">
+          <div class="about-portrait-wrap" aria-label="Portrait d’Olivier Mur">
+            <span class="about-shape green"></span>
+            <span class="about-shape orange"></span>
+            <span class="about-shape blue"></span>
+            <span class="about-shape mauve"></span>
+            <div class="about-portrait">
+              <img src="assets/olivier-mur-portrait-bateau.jpg" alt="Olivier Mur, chef opérateur du son" loading="lazy">
+            </div>
+          </div>
+
+          <div class="about-content">
+            <div class="about-eyebrow">Terrain · studio · post-production</div>
             <p class="about-lead">Chef opérateur du son indépendant depuis 2009, diplômé de l’ENS Louis-Lumière.</p>
+            <div class="about-copy">
+              <p>J’interviens de l’interview en équipe légère aux productions internationales, avec une attention particulière portée à la discrétion des HF, à la qualité de la prise et à la fluidité du plateau.</p>
+              <p>En post-production, je travaille notamment sur Nuendo et Pro Tools pour le montage, le mixage et les livraisons répondant aux normes de diffusion.</p>
+            </div>
+
             <div class="facts">
               <div class="fact"><strong>+15 ans</strong><span>d’expérience</span></div>
               <div class="fact"><strong>C1</strong><span>anglais professionnel</span></div>
               <div class="fact"><strong>8 HF</strong><span>kit matériel de tournage complet</span></div>
               <div class="fact"><strong>Paris</strong><span>Île-de-France</span></div>
             </div>
-          </div>
-          <div class="about-copy">
-            <p>J’interviens de l’interview en équipe légère aux productions internationales, avec une attention particulière portée à la discrétion des HF, à la qualité de la prise et à la fluidité du plateau.</p>
-            <p>En post-production, je travaille notamment sur Nuendo et Pro Tools pour le montage, le mixage et les livraisons répondant aux normes de diffusion.</p>
+
             <div class="references" aria-label="Sélection de clients et diffuseurs">
               <div class="client-logo netflix"><img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" alt="Netflix" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="logo-fallback">Netflix</span></div>
               <div class="client-logo france2 square"><img src="https://upload.wikimedia.org/wikipedia/commons/5/53/France_2_2018.svg" alt="France 2" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="logo-fallback">France 2</span></div>
@@ -603,7 +679,7 @@
               <div class="client-logo tiktok"><img src="https://upload.wikimedia.org/wikipedia/commons/b/b6/Tiktok_logo_text.svg" alt="TikTok" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="logo-fallback">TikTok</span></div>
               <div class="client-logo psg square"><img src="https://upload.wikimedia.org/wikipedia/commons/8/84/Paris_Saint-Germain_F.C..webp" alt="Paris Saint-Germain" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="logo-fallback">PSG</span></div>
             </div>
-            <div style="margin-top:28px"><a class="button secondary" href="assets/olivier-mur-cv-2026-v3.pdf" download>Télécharger le CV complet ↓</a></div>
+            <div class="about-actions"><a class="button secondary" href="assets/olivier-mur-cv-2026-v3.pdf" download>Télécharger le CV complet ↓</a></div>
           </div>
         </div>
       </div>
