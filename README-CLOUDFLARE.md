@@ -45,4 +45,4 @@ Ajouter `oliviermursound.fr`, puis suivre les instructions DNS. Pour le domaine 
 Si le spam devient significatif, ajouter Cloudflare Turnstile au formulaire.
 
 
-CV public actuel : `public/assets/olivier-mur-cv-2026-v2.pdf`
+CV public actuel : `public/assets/olivier-mur-cv-2026-v3.pdf`

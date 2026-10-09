@@ -71,5 +71,11 @@ Les anciennes cartes Help us, Parions Sport et Farrah El Dibany ont été retir�
 
 
 ## v29
-- Nouveau CV intégré : olivier-mur-cv-2026-v2.pdf
+- Nouveau CV intégré : olivier-mur-cv-2026-v3.pdf
 - Tous les liens CV du portfolio pointent vers cette nouvelle version.
+
+
+## v30
+- CV remplacé par la nouvelle version fournie par Olivier.
+- Nouveau fichier public : `public/assets/olivier-mur-cv-2026-v3.pdf`.
+- Tous les liens CV du site pointent vers cette version.
