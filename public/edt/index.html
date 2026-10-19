@@ -4,249 +4,72 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow, noarchive">
-<title>Roulement de travail — Olivier</title>
+<title>Roulement de travail — version 4</title>
 <style>
   :root{
-    --bg:#f6f7f9;
-    --card:#ffffff;
-    --text:#1d2430;
-    --muted:#667085;
-    --line:#d9dee7;
-    --accent:#2f6fed;
-    --accent-soft:#eaf1ff;
-    --done:#eef8f1;
-    --done-border:#9fd0ac;
-    --shadow:0 8px 24px rgba(18, 28, 45, .08);
+    --bg:#eef1f6; --panel:#ffffff; --text:#141821; --muted:#697184; --line:#dfe4ec;
+    --accent:#3157d5; --accent-2:#6a5cff; --done:#eff8f1; --done-border:#b5d8bd;
+    --shadow:0 18px 50px rgba(24,31,48,.10); --shadow-soft:0 8px 24px rgba(24,31,48,.07);
+    --stm:#5b6ee1; --clients:#c17449; --linux:#3d8b80; --prospect:#a05994; --english:#c89a36;
   }
-  *{box-sizing:border-box}
-  body{
-    margin:0;
-    font-family:Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    background:var(--bg);
-    color:var(--text);
-  }
-
-  .private-bar{
-    display:flex;
-    justify-content:flex-end;
-    margin:0 0 12px;
-  }
-  .private-bar a{
-    color:var(--muted);
-    font-size:13px;
-    font-weight:700;
-    text-decoration:none;
-    border:1px solid var(--line);
-    background:#fff;
-    padding:8px 11px;
-    border-radius:10px;
-  }
-  .private-bar a:hover{color:var(--text);border-color:#b7bfcc}
-
-  .wrap{
-    max-width:980px;
-    margin:0 auto;
-    padding:28px 18px 60px;
-  }
-  header{
-    background:linear-gradient(135deg,#ffffff 0%,#f1f5ff 100%);
-    border:1px solid var(--line);
-    border-radius:20px;
-    padding:24px;
-    box-shadow:var(--shadow);
-    margin-bottom:20px;
-  }
-  h1{margin:0 0 8px;font-size:30px;line-height:1.15}
-  .sub{color:var(--muted);margin:0 0 20px;line-height:1.5}
-  .toprow{
-    display:grid;
-    grid-template-columns:1fr auto;
-    gap:18px;
-    align-items:center;
-  }
-  .progress-shell{
-    height:14px;
-    background:#e8ebf1;
-    border-radius:999px;
-    overflow:hidden;
-  }
-  .progress-bar{
-    height:100%;
-    width:0;
-    background:var(--accent);
-    transition:width .25s ease;
-  }
-  .counter{
-    font-weight:700;
-    white-space:nowrap;
-  }
-  .notice{
-    margin-top:16px;
-    padding:12px 14px;
-    background:var(--accent-soft);
-    border:1px solid #c9d8ff;
-    border-radius:12px;
-    font-size:14px;
-    line-height:1.45;
-  }
-  .grid{
-    display:grid;
-    gap:12px;
-  }
-  .block{
-    display:grid;
-    grid-template-columns:auto minmax(0,1fr);
-    gap:14px;
-    align-items:start;
-    background:var(--card);
-    border:1px solid var(--line);
-    border-radius:16px;
-    padding:16px;
-    box-shadow:0 3px 12px rgba(18, 28, 45, .04);
-    transition:.2s ease;
-  }
-  .block.next{
-    border:2px solid var(--accent);
-    box-shadow:0 5px 18px rgba(47,111,237,.12);
-  }
-  .block.done{
-    background:var(--done);
-    border-color:var(--done-border);
-  }
-  .check{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    padding-top:2px;
-  }
-  input[type=checkbox]{
-    width:24px;
-    height:24px;
-    accent-color:var(--accent);
-    cursor:pointer;
-  }
-  .blockhead{
-    display:flex;
-    align-items:baseline;
-    justify-content:space-between;
-    gap:12px;
-    flex-wrap:wrap;
-  }
-  .title{
-    font-weight:800;
-    font-size:18px;
-  }
-  .duration{
-    color:var(--muted);
-    font-weight:700;
-    font-size:14px;
-  }
-  .label{
-    display:block;
-    font-size:13px;
-    color:var(--muted);
-    margin-top:10px;
-    margin-bottom:6px;
-  }
-  textarea{
-    width:100%;
-    min-height:76px;
-    resize:vertical;
-    border:1px solid var(--line);
-    border-radius:10px;
-    padding:10px 12px;
-    font:inherit;
-    color:var(--text);
-    background:#fff;
-    outline:none;
-  }
-  textarea:focus{
-    border-color:var(--accent);
-    box-shadow:0 0 0 3px rgba(47,111,237,.12);
-  }
-  .footer-card{
-    margin-top:20px;
-    background:#fff;
-    border:1px solid var(--line);
-    border-radius:16px;
-    padding:18px;
-  }
-  .footer-card h2{font-size:18px;margin:0 0 10px}
-  .footer-card p{margin:7px 0;color:#3f4754;line-height:1.5}
-  .buttons{
-    display:flex;
-    flex-wrap:wrap;
-    gap:10px;
-    margin-top:18px;
-  }
-  button{
-    appearance:none;
-    border:1px solid var(--line);
-    background:#fff;
-    color:var(--text);
-    padding:10px 14px;
-    border-radius:10px;
-    font-weight:700;
-    cursor:pointer;
-  }
-  button.primary{
-    background:var(--accent);
-    border-color:var(--accent);
-    color:#fff;
-  }
-  .toast{
-    position:fixed;
-    left:50%;
-    bottom:22px;
-    transform:translateX(-50%) translateY(120px);
-    background:#152033;
-    color:white;
-    padding:12px 16px;
-    border-radius:12px;
-    box-shadow:var(--shadow);
-    opacity:0;
-    transition:.3s ease;
-    z-index:10;
-    max-width:min(90vw,560px);
-    text-align:center;
-  }
-  .toast.show{
-    opacity:1;
-    transform:translateX(-50%) translateY(0);
-  }
-  @media(max-width:640px){
-    h1{font-size:25px}
-    .toprow{grid-template-columns:1fr}
-    .counter{justify-self:start}
-    .block{padding:14px}
-  }
-  @media print{
-    body{background:#fff}
-    .wrap{max-width:none;padding:0}
-    header,.block,.footer-card{box-shadow:none}
-    .buttons,.toast{display:none!important}
-    textarea{min-height:55px}
-    .block{break-inside:avoid}
-  }
+  *{box-sizing:border-box} html{scroll-behavior:smooth}
+  body{margin:0;font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:linear-gradient(135deg,rgba(49,87,213,.045) 25%,transparent 25%) 0 0/38px 38px,linear-gradient(315deg,rgba(106,92,255,.035) 25%,transparent 25%) 0 0/38px 38px,var(--bg);color:var(--text)}
+  .wrap{max-width:1020px;margin:0 auto;padding:0 18px 70px}
+  header{position:sticky;top:0;z-index:30;margin:0 -18px 22px;padding:16px 18px 14px;background:rgba(238,241,246,.91);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid rgba(205,212,224,.82)}
+  .header-card{max-width:1020px;margin:0 auto;background:radial-gradient(circle at 100% 0%,rgba(106,92,255,.13),transparent 28%),radial-gradient(circle at 0% 100%,rgba(49,87,213,.10),transparent 30%),var(--panel);border:1px solid rgba(208,214,225,.92);border-radius:22px;padding:18px 20px;box-shadow:var(--shadow)}
+  .heading-row{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;margin-bottom:14px}
+  .eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-bottom:7px}
+  .eyebrow::before{content:"";width:8px;height:8px;border-radius:2px;background:linear-gradient(135deg,var(--accent),var(--accent-2));transform:rotate(45deg)}
+  h1{margin:0;font-size:clamp(24px,4vw,34px);line-height:1.05;letter-spacing:-.03em}
+  .cycle-badge{flex:none;display:inline-flex;align-items:center;justify-content:center;min-width:92px;padding:9px 12px;border-radius:999px;background:#141821;color:#fff;font-size:13px;font-weight:800;white-space:nowrap}
+  .progress-row{display:grid;grid-template-columns:1fr auto;gap:14px;align-items:center}
+  .progress-shell{height:12px;background:#e9edf3;border-radius:999px;overflow:hidden;box-shadow:inset 0 1px 2px rgba(20,24,33,.06)}
+  .progress-bar{height:100%;width:0;background:linear-gradient(90deg,var(--accent),var(--accent-2));transition:width .3s ease}
+  .counter{font-weight:850;font-variant-numeric:tabular-nums;white-space:nowrap;color:#2b3140}
+  .status-line{display:flex;align-items:center;gap:8px;margin-top:12px;color:var(--muted);font-size:13px;line-height:1.35}
+  .status-dot{width:8px;height:8px;border-radius:999px;background:var(--accent);box-shadow:0 0 0 4px rgba(49,87,213,.11);flex:none}
+  .stats{margin-top:8px;color:var(--muted);font-size:12px;line-height:1.45}
+  .grid{display:grid;gap:12px}
+  .block{--block-accent:var(--accent);position:relative;display:grid;grid-template-columns:auto minmax(0,1fr);gap:14px;align-items:start;background:rgba(255,255,255,.96);border:1px solid var(--line);border-radius:18px;padding:16px 18px;box-shadow:var(--shadow-soft);transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease,background .18s ease;scroll-margin-top:185px;overflow:hidden}
+  .block::before{content:"";position:absolute;inset:0 auto 0 0;width:5px;background:var(--block-accent);opacity:.74}
+  .block:hover{transform:translateY(-1px);box-shadow:0 11px 30px rgba(24,31,48,.09)}
+  .block.next{border:2px solid var(--block-accent);box-shadow:0 14px 36px rgba(49,87,213,.15);background:linear-gradient(90deg,rgba(49,87,213,.05),white 38%)}
+  .block.next::after{content:"EN COURS";position:absolute;top:14px;right:16px;padding:5px 8px;border-radius:999px;background:var(--block-accent);color:white;font-size:10px;font-weight:900;letter-spacing:.07em}
+  .block.done{background:var(--done);border-color:var(--done-border);opacity:.78}.block.done::before{background:#61a46f}
+  .block.stm{--block-accent:var(--stm)} .block.clients{--block-accent:var(--clients)} .block.linux{--block-accent:var(--linux)} .block.prospect{--block-accent:var(--prospect)} .block.english{--block-accent:var(--english)}
+  .check{display:flex;align-items:center;justify-content:center;padding-top:2px}
+  input[type=checkbox]{width:25px;height:25px;accent-color:var(--block-accent);cursor:pointer}
+  .blockhead{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-right:82px}
+  .title{font-weight:850;font-size:18px;letter-spacing:-.015em}.duration{color:var(--muted);font-weight:800;font-size:13px;background:#f3f5f8;padding:5px 9px;border-radius:999px;flex:none}
+  .label{display:block;font-size:12px;font-weight:700;color:var(--muted);margin-top:11px;margin-bottom:6px}
+  textarea{width:100%;min-height:72px;resize:vertical;border:1px solid var(--line);border-radius:12px;padding:11px 12px;font:inherit;color:var(--text);background:#fff;outline:none;transition:border-color .18s ease,box-shadow .18s ease}
+  textarea:focus{border-color:var(--block-accent);box-shadow:0 0 0 3px rgba(49,87,213,.10)}
+  .footer-card{margin-top:22px;background:rgba(255,255,255,.96);border:1px solid var(--line);border-radius:18px;padding:18px 20px;box-shadow:var(--shadow-soft)}
+  .footer-card h2{font-size:18px;margin:0 0 10px}.footer-card p{margin:8px 0;color:#434b5d;line-height:1.5}
+  .buttons{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+  button{appearance:none;border:1px solid var(--line);background:#fff;color:var(--text);padding:10px 14px;border-radius:11px;font-weight:800;cursor:pointer}button.primary{background:#151923;border-color:#151923;color:#fff}
+  .toast{position:fixed;left:50%;bottom:22px;transform:translateX(-50%) translateY(120px);background:#151923;color:white;padding:12px 16px;border-radius:12px;box-shadow:var(--shadow);opacity:0;transition:.3s ease;z-index:50;max-width:min(90vw,560px);text-align:center}.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+  @media(max-width:700px){.wrap{padding-left:12px;padding-right:12px}header{margin:0 -12px 16px;padding:10px 12px 11px}.header-card{padding:15px 16px;border-radius:17px}.heading-row{align-items:center;margin-bottom:11px}h1{font-size:24px}.cycle-badge{min-width:auto;padding:7px 10px;font-size:12px}.progress-row{grid-template-columns:1fr auto;gap:10px}.status-line{font-size:12px}.stats{display:none}.block{padding:15px 14px;scroll-margin-top:155px}.blockhead{padding-right:0;align-items:flex-start}.block.next::after{position:static;grid-column:1/-1;width:max-content;margin:0 0 6px auto}.title{font-size:16px}.duration{font-size:12px}}
+  @media print{body{background:#fff}.wrap{max-width:none;padding:0}header{position:static;margin:0 0 20px;padding:0;border:0;background:#fff}.header-card,.block,.footer-card{box-shadow:none}.buttons,.toast{display:none!important}textarea{min-height:55px}.block{break-inside:avoid}}
 </style>
 </head>
 <body>
 <div class="wrap">
-  <div class="private-bar"><a href="/edt/?logout=1">Déconnexion</a></div>
   <header>
-    <h1>Roulement de travail</h1>
-    <p class="sub">
-      Tu reprends toujours au prochain bloc non coché. Pas de remise à zéro le lundi.
-      Quand les 15 blocs sont terminés, les cases se réinitialisent automatiquement pour démarrer un nouveau cycle.
-      Les commentaires restent enregistrés afin de conserver le point de reprise.
-    </p>
-    <div class="toprow">
-      <div class="progress-shell"><div id="progressBar" class="progress-bar"></div></div>
-      <div id="counter" class="counter">0 / 15</div>
-    </div>
-    <div class="notice">
-      <strong>Principe :</strong> une mission rémunérée, une échéance réellement urgente ou une priorité familiale/santé peut interrompre le roulement.
-      Elle ne crée jamais de « dette » à rattraper.
+    <div class="header-card">
+      <div class="heading-row">
+        <div>
+          <div class="eyebrow">Pilotage personnel</div>
+          <h1>Roulement de travail</h1>
+        </div>
+        <div id="cycleBadge" class="cycle-badge">Cycle 1</div>
+      </div>
+      <div class="progress-row">
+        <div class="progress-shell"><div id="progressBar" class="progress-bar"></div></div>
+        <div id="counter" class="counter">0 / 24</div>
+      </div>
+      <div class="status-line"><span class="status-dot"></span><span id="currentStatus">Prochain bloc : —</span></div>
+      <div class="stats">9 h STM32/TinyML · 6 h Linux/Bash/réseau · 4 h stratégie clients audiovisuel · 2 h prospection embarquée · 45 min anglais</div>
     </div>
   </header>
 
@@ -255,8 +78,11 @@
   <section class="footer-card">
     <h2>Rappels hors roulement</h2>
     <p><strong>Sport :</strong> lundi, mardi, jeudi et vendredi — 1 h 45 au total (1 h de trajet aller-retour + 45 min d'entraînement).</p>
-    <p><strong>Micro-pratiques :</strong> langues ↔ musique, dès que tu as quelques minutes disponibles. Elles ne remplacent pas les blocs de travail.</p>
-    <p><strong>Watch :</strong> pas de bloc séparé pour l'instant. Le jour où Watch recoupe STM32/TinyML, il s'intègre directement dans ces blocs.</p>
+    <p><strong>Micro-pratiques :</strong> langues ↔ musique dès que tu as quelques minutes disponibles. Elles ne remplacent pas les blocs du roulement.</p>
+    <p><strong>Clients audiovisuel :</strong> chaque bloc d'1 h doit idéalement contenir au moins une action tournée vers l'extérieur : contact, relance, envoi, proposition, etc.</p>
+    <p><strong>Prospection embarquée :</strong> 30 min normalement. Si une excellente offre mérite une candidature soignée, tu peux prolonger ponctuellement jusqu'à 1 h.</p>
+    <p><strong>Watch :</strong> pas de bloc séparé pour l'instant. Quand Watch recoupera STM32/TinyML, il s'intégrera directement dans ces blocs.</p>
+    <p><strong>Règle :</strong> mission rémunérée, échéance vraiment urgente ou priorité familiale/santé = interruption légitime. Pas de dette de travail à rattraper.</p>
 
     <div class="buttons">
       <button id="resetChecks" class="primary">Réinitialiser uniquement les cases</button>
@@ -269,34 +95,49 @@
 
 <script>
 const items = [
-  ["STM32 / TinyML","1 h 30"],
-  ["Stratégie clients audiovisuel","1 h 45"],
-  ["Linux / Bash / réseau","1 h 30"],
-  ["STM32 / TinyML","1 h 30"],
-  ["Prospection embarqué","1 h 15"],
-  ["Linux / Bash / réseau","1 h 30"],
-  ["STM32 / TinyML","1 h 30"],
-  ["Stratégie clients audiovisuel","1 h 45"],
-  ["STM32 / TinyML","1 h 30"],
-  ["Linux / Bash / réseau","1 h 30"],
+  ["STM32 / TinyML","1 h"],
+  ["Stratégie clients audiovisuel","1 h"],
+  ["Linux / Bash / réseau","1 h"],
+  ["Prospection embarquée","30 min"],
+  ["STM32 / TinyML","1 h"],
+  ["Linux / Bash / réseau","1 h"],
+  ["STM32 / TinyML","1 h"],
+  ["Stratégie clients audiovisuel","1 h"],
+  ["Prospection embarquée","30 min"],
+  ["STM32 / TinyML","1 h"],
+  ["Linux / Bash / réseau","1 h"],
   ["Anglais","45 min"],
-  ["Prospection embarqué","1 h 15"],
-  ["STM32 / TinyML","1 h 30"],
-  ["Linux / Bash / réseau","1 h 30"],
-  ["STM32 / TinyML","1 h 30"]
+  ["STM32 / TinyML","1 h"],
+  ["Stratégie clients audiovisuel","1 h"],
+  ["Linux / Bash / réseau","1 h"],
+  ["Prospection embarquée","30 min"],
+  ["STM32 / TinyML","1 h"],
+  ["Linux / Bash / réseau","1 h"],
+  ["STM32 / TinyML","1 h"],
+  ["Stratégie clients audiovisuel","1 h"],
+  ["Prospection embarquée","30 min"],
+  ["STM32 / TinyML","1 h"],
+  ["Linux / Bash / réseau","1 h"],
+  ["STM32 / TinyML","1 h"]
 ];
 
-const storageKey = "roulement-travail-v1";
+const storageKey = "roulement-travail-v3";
+const API = "/edt/api/state";
+let saveTimer = null;
 const defaultState = {
   checks: Array(items.length).fill(false),
   comments: Array(items.length).fill(""),
   cycle: 1
 };
 
+function cloneDefault(){
+  return JSON.parse(JSON.stringify(defaultState));
+}
+
 function loadState(){
   try{
     const raw = localStorage.getItem(storageKey);
-    if(!raw) return structuredClone(defaultState);
+    if(!raw) return cloneDefault();
     const parsed = JSON.parse(raw);
     return {
       checks: Array.isArray(parsed.checks) && parsed.checks.length===items.length ? parsed.checks : Array(items.length).fill(false),
@@ -304,14 +145,61 @@ function loadState(){
       cycle: Number.isFinite(parsed.cycle) ? parsed.cycle : 1
     };
   }catch(e){
-    return structuredClone(defaultState);
+    return cloneDefault();
   }
 }
 
 let state = loadState();
 
-function saveState(){
+function normalizeState(raw){
+  return {
+    checks: Array.isArray(raw?.checks) && raw.checks.length===items.length ? raw.checks.map(Boolean) : Array(items.length).fill(false),
+    comments: Array.isArray(raw?.comments) && raw.comments.length===items.length ? raw.comments.map(v=>String(v??"")) : Array(items.length).fill(""),
+    cycle: Number.isFinite(Number(raw?.cycle)) && Number(raw.cycle)>=1 ? Math.floor(Number(raw.cycle)) : 1
+  };
+}
+
+function saveLocal(){
   localStorage.setItem(storageKey, JSON.stringify(state));
+}
+
+async function saveServer(){
+  saveLocal();
+  try{
+    const r = await fetch(API,{
+      method:"POST",
+      headers:{"Content-Type":"application/json"},
+      body:JSON.stringify(state)
+    });
+    if(r.status===401){ location.href="/edt/"; return; }
+    if(!r.ok) throw new Error("server");
+  }catch(e){
+    // La copie locale reste disponible même si la synchronisation distante échoue.
+  }
+}
+
+function scheduleSave(){
+  saveLocal();
+  clearTimeout(saveTimer);
+  saveTimer = setTimeout(saveServer, 650);
+}
+
+async function loadServer(){
+  try{
+    const r = await fetch(API,{method:"GET",cache:"no-store"});
+    if(r.status===401){ location.href="/edt/"; return; }
+    if(!r.ok) throw new Error("server");
+    const payload = await r.json();
+    if(payload.exists){
+      state = normalizeState(payload.data);
+      saveLocal();
+    }else{
+      state = normalizeState(loadState());
+      await saveServer();
+    }
+  }catch(e){
+    state = normalizeState(loadState());
+  }
 }
 
 function showToast(msg){
@@ -329,7 +217,14 @@ function render(){
 
   items.forEach((item, i) => {
     const block = document.createElement("section");
-    block.className = "block" + (state.checks[i] ? " done" : "") + (i===nextIndex ? " next" : "");
+    const categoryClass =
+      item[0].startsWith("STM32") ? " stm" :
+      item[0].startsWith("Stratégie") ? " clients" :
+      item[0].startsWith("Linux") ? " linux" :
+      item[0].startsWith("Prospection") ? " prospect" :
+      item[0].startsWith("Anglais") ? " english" : "";
+    block.className = "block" + categoryClass + (state.checks[i] ? " done" : "") + (i===nextIndex ? " next" : "");
+    block.dataset.index = i;
 
     const checkWrap = document.createElement("div");
     checkWrap.className = "check";
@@ -340,12 +235,12 @@ function render(){
     check.setAttribute("aria-label", `Bloc ${i+1} terminé`);
     check.addEventListener("change", () => {
       state.checks[i] = check.checked;
-      saveState();
+      scheduleSave();
 
       if(state.checks.every(Boolean)){
         state.cycle += 1;
         state.checks = Array(items.length).fill(false);
-        saveState();
+        scheduleSave();
         render();
         showToast(`Cycle terminé. Nouveau cycle ${state.cycle} démarré automatiquement.`);
         return;
@@ -358,18 +253,21 @@ function render(){
     const body = document.createElement("div");
     const head = document.createElement("div");
     head.className = "blockhead";
+
     const title = document.createElement("div");
     title.className = "title";
-    title.textContent = `${i+1}. ${item[0]}`;
+    title.textContent = `Bloc ${String(i+1).padStart(2,"0")} · ${item[0]}`;
+
     const duration = document.createElement("div");
     duration.className = "duration";
     duration.textContent = item[1];
+
     head.appendChild(title);
     head.appendChild(duration);
 
     const label = document.createElement("label");
     label.className = "label";
-    label.textContent = "Commentaire / point de reprise pour la prochaine fois";
+    label.textContent = "Point de reprise pour la prochaine fois";
     label.htmlFor = `comment-${i}`;
 
     const textarea = document.createElement("textarea");
@@ -378,7 +276,7 @@ function render(){
     textarea.value = state.comments[i];
     textarea.addEventListener("input", (e) => {
       state.comments[i] = e.target.value;
-      saveState();
+      scheduleSave();
     });
 
     body.appendChild(head);
@@ -393,11 +291,18 @@ function render(){
   const completed = state.checks.filter(Boolean).length;
   document.getElementById("counter").textContent = `${completed} / ${items.length} — cycle ${state.cycle}`;
   document.getElementById("progressBar").style.width = `${(completed/items.length)*100}%`;
+  document.getElementById("cycleBadge").textContent = `Cycle ${state.cycle}`;
+  const status = document.getElementById("currentStatus");
+  if(nextIndex >= 0){
+    status.textContent = `Prochain bloc : ${nextIndex + 1}. ${items[nextIndex][0]} · ${items[nextIndex][1]}`;
+  }else{
+    status.textContent = "Cycle terminé";
+  }
 }
 
 document.getElementById("resetChecks").addEventListener("click", ()=>{
   state.checks = Array(items.length).fill(false);
-  saveState();
+  scheduleSave();
   render();
   showToast("Cases réinitialisées. Les commentaires ont été conservés.");
 });
@@ -405,13 +310,36 @@ document.getElementById("resetChecks").addEventListener("click", ()=>{
 document.getElementById("clearComments").addEventListener("click", ()=>{
   if(confirm("Effacer tous les commentaires ?")){
     state.comments = Array(items.length).fill("");
-    saveState();
+    scheduleSave();
     render();
     showToast("Tous les commentaires ont été effacés.");
   }
 });
 
 render();
+
+async function init(){
+  await loadServer();
+  render();
+  scrollToCurrentBlock();
+}
+
+setInterval(()=>saveServer(), 5*60*1000);
+
+function scrollToCurrentBlock(){
+  const nextIndex = state.checks.findIndex(v => !v);
+  if(nextIndex < 0) return;
+  const target = document.querySelector(`.block[data-index="${nextIndex}"]`);
+  if(!target) return;
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      target.scrollIntoView({behavior:"auto", block:"start"});
+      const checkbox = target.querySelector('input[type="checkbox"]');
+      if(checkbox) checkbox.focus({preventScroll:true});
+    });
+  });
+}
+window.addEventListener("load", init);
 </script>
 </body>
 </html>

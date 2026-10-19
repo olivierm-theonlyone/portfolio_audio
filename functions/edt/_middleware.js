@@ -1,4 +1,4 @@
-const COOKIE = "edt_session";
+const COOKIE = "om_private_session";
 const MAX_AGE = 60 * 60 * 24;
 
 async function sha256Hex(value) {
@@ -16,20 +16,23 @@ function cookieValue(request, name) {
   return null;
 }
 
-function loginPage(error = "", status = 401) {
-  return new Response(`<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow,noarchive"><title>Planning privé</title><style>:root{--bg:#f6f7f9;--text:#1d2430;--muted:#667085;--line:#d9dee7;--accent:#2f6fed}*{box-sizing:border-box}body{margin:0;min-height:100vh;display:grid;place-items:center;padding:22px;background:var(--bg);color:var(--text);font-family:Inter,system-ui,sans-serif}.card{width:min(440px,100%);background:#fff;border:1px solid var(--line);border-radius:20px;padding:28px;box-shadow:0 12px 34px rgba(18,28,45,.10)}h1{margin:0 0 8px}p{color:var(--muted);line-height:1.5}label{display:block;font-size:13px;font-weight:700;margin:18px 0 7px}input{width:100%;height:48px;border:1px solid var(--line);border-radius:11px;padding:0 13px;font:inherit}button{width:100%;height:48px;margin-top:12px;border:0;border-radius:11px;background:var(--accent);color:#fff;font:inherit;font-weight:800}.err{color:#b42318;font-weight:700}</style></head><body><main class="card"><h1>Planning privé</h1><p>Entre le mot de passe pour accéder à ton emploi du temps.</p>${error ? `<p class="err">${error}</p>` : ""}<form method="post"><label for="password">Mot de passe</label><input id="password" name="password" type="password" autocomplete="current-password" required autofocus><button type="submit">Accéder au planning</button></form></main></body></html>`, {status,headers:{"content-type":"text/html; charset=utf-8","cache-control":"no-store","x-robots-tag":"noindex, nofollow, noarchive"}});
+function loginPage(pathname, error = "", status = 401) {
+  const isBudget = pathname.startsWith("/budget");
+  const title = isBudget ? "Budget privé" : "Planning privé";
+  const text = isBudget ? "Entre le mot de passe pour accéder au suivi de facturation." : "Entre le mot de passe pour accéder à ton roulement de travail.";
+  return new Response(`<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow,noarchive"><title>${title}</title><style>:root{--bg:#eef1f6;--text:#141821;--muted:#697184;--line:#dfe4ec;--accent:#3157d5}*{box-sizing:border-box}body{margin:0;min-height:100vh;display:grid;place-items:center;padding:22px;background:linear-gradient(135deg,#eef1f6,#f7f8fb);color:var(--text);font-family:Inter,system-ui,sans-serif}.card{width:min(440px,100%);background:#fff;border:1px solid var(--line);border-radius:22px;padding:28px;box-shadow:0 18px 50px rgba(24,31,48,.11)}h1{margin:0 0 8px}p{color:var(--muted);line-height:1.5}label{display:block;font-size:13px;font-weight:800;margin:18px 0 7px}input{width:100%;height:48px;border:1px solid var(--line);border-radius:11px;padding:0 13px;font:inherit}button{width:100%;height:48px;margin-top:12px;border:0;border-radius:11px;background:var(--accent);color:#fff;font:inherit;font-weight:850;cursor:pointer}.err{color:#b42318;font-weight:750}</style></head><body><main class="card"><h1>${title}</h1><p>${text}</p>${error ? `<p class="err">${error}</p>` : ""}<form method="post"><label for="password">Mot de passe</label><input id="password" name="password" type="password" autocomplete="current-password" required autofocus><button type="submit">Accéder</button></form></main></body></html>`, {status,headers:{"content-type":"text/html; charset=utf-8","cache-control":"no-store","x-robots-tag":"noindex, nofollow, noarchive"}});
 }
 
 export async function onRequest(context) {
   const { request, env } = context;
-  if (!env.EDT_PASSWORD) return loginPage("Accès non configuré.", 503);
-
   const url = new URL(request.url);
+  if (!env.EDT_PASSWORD) return loginPage(url.pathname, "Accès non configuré.", 503);
+
   if (url.searchParams.get("logout") === "1") {
-    return new Response(null,{status:303,headers:{Location:"/edt/","Set-Cookie":`${COOKIE}=; Path=/edt; HttpOnly; Secure; SameSite=Strict; Max-Age=0`}});
+    return new Response(null,{status:303,headers:{Location:url.pathname.startsWith("/budget")?"/budget/":"/edt/","Set-Cookie":`${COOKIE}=; Path=/; HttpOnly; Secure; SameSite=Strict; Max-Age=0`}});
   }
 
-  const expected = await sha256Hex(`olivier-edt-v1:${env.EDT_PASSWORD}`);
+  const expected = await sha256Hex(`olivier-private-v1:${env.EDT_PASSWORD}`);
   const session = cookieValue(request, COOKIE);
   if (session === expected) {
     const response = await context.next();
@@ -43,10 +46,10 @@ export async function onRequest(context) {
     const form = await request.formData();
     const submitted = String(form.get("password") || "");
     if (submitted === env.EDT_PASSWORD) {
-      return new Response(null,{status:303,headers:{Location:"/edt/","Set-Cookie":`${COOKIE}=${expected}; Path=/edt; HttpOnly; Secure; SameSite=Strict; Max-Age=${MAX_AGE}`}});
+      return new Response(null,{status:303,headers:{Location:url.pathname.startsWith("/budget")?"/budget/":"/edt/","Set-Cookie":`${COOKIE}=${expected}; Path=/; HttpOnly; Secure; SameSite=Strict; Max-Age=${MAX_AGE}`}});
     }
-    return loginPage("Mot de passe incorrect.", 401);
+    return loginPage(url.pathname, "Mot de passe incorrect.", 401);
   }
 
-  return loginPage();
+  return loginPage(url.pathname);
 }
